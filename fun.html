@@ -258,23 +258,6 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
 }
 
-function cardFor(item){
-  const el = document.createElement('article');
-  el.className = 'card';
-
-  const slides = item.images.map(src => `
-    <div class="slide">
-      <img
-        loading="lazy"
-        decoding="async"
-        src="${src}"
-        srcset="${src} 1x, ${hi2x(src)} 2x"
-        sizes="(max-width: 700px) 100vw, 33vw"
-        width="800" height="450"
-        alt="${item.title}">
-    </div>
-  `).join('');
-
   // Simple swipe
   let startX = null;
   carousel.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
