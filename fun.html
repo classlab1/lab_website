@@ -10,16 +10,13 @@
   *{ box-sizing:border-box; margin:0; padding:0; }
   body{ font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
 
-  /* NAV (matches other pages) */
+  /* NAV */
   .navbar{ background:linear-gradient(135deg,#2c3e50,#34495e); padding:1rem 0; position:fixed; top:0; left:0; right:0; z-index:1000; }
   .nav-container{ max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; }
   .logo-img{ height:44px; }
   .nav-links{ display:flex; gap:1.6rem; list-style:none; }
   .nav-links a{ color:#ecf0f1; text-decoration:none; }
-  .nav-links a[href="fun.html"]::after {
-  display: none !important;
-}
-
+  .nav-links a[href="fun.html"]::after { display:none !important; }
 
   /* PAGE WRAP */
   main{ padding-top:104px; padding-bottom:60px; }
@@ -41,7 +38,11 @@
   .carousel{ position:relative; width:100%; aspect-ratio:16/9; background:#eaf1f8; overflow:hidden; }
   .slides{ display:flex; height:100%; transition:transform .35s ease; }
   .slide{ flex:0 0 100%; height:100%; position:relative; }
-  .slide img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .slide img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;            /* No stretching, crop if needed */
+  }
 
   .ctrl{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border:0; border-radius:50%;
          background:rgba(255,255,255,.92); color:#2b2f36; display:flex; align-items:center; justify-content:center;
@@ -54,7 +55,7 @@
   .dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.65); border:2px solid rgba(0,0,0,.1); cursor:pointer; }
   .dot.active{ background:#fff; border-color:#fff; }
 
-  /* FOOTER (identical look & structure to your reference) */
+  /* FOOTER */
   .footer { background: linear-gradient(135deg, #2c3e50, #34495e); color: #ecf0f1; padding: 3rem 0 1rem; margin-top: 4rem; }
   .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
   .footer-section { flex:1 1 260px; }
@@ -95,7 +96,7 @@
   </div>
 </main>
 
-<!-- FOOTER (same structure as reference) -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
@@ -123,7 +124,7 @@
 </footer>
 
 <script>
-/* ------- Add/Update fun moments here ------- */
+/* ------- Data ------- */
 const FUN = [
   {
     id: "fall-gathering-2025",
@@ -138,81 +139,101 @@ const FUN = [
     ]
   },
   {
-  id: "sweetwater-2025",
-  title: "Sweetwater Preserve Trail Hike + Dixit",
-  date: "May 11, 2025 • Gainesville, FL",
-  caption:
-    "Another fun CLASS Lab gathering: ~1.5 hr walk, snacks, and our favorite game—Dixit. Invited a couple of other students too—so fun!",
-  images: [
-    "images/fun/sweetwater_2025_1.jpg",  // group by the trail sign
-    "images/fun/sweetwater_2025_2.jpg",  // selfie/group
-    "images/fun/sweetwater_2025_3.jpg",  // path/boardwalk
-  ]
-},
-{
-  id: "lachua-2025",
-  title: "La Chua Trail Hike + Game Day",
-  date: "Feb 23, 2025 • Paynes Prairie State Preserve",
-  caption:
-    "1-hour walk 🐊🌿 + game + 🌸 with students fun! This was right after meeting the AIED paper deadline — work hard, play hard.",
-  images: [
-    "images/fun/lachua_2025_3.jpg",   // boardwalk selfie
-    "images/fun/lachua_2025_2.jpg",   // flowers close-up
-    "images/fun/lachua_2025_1.jpg",   // alligator / water view
-  ]
-},
-{
-  id: "productive-math-celebration-2024",
-  title: "ProductiveMath Grant Celebration 🎉",
-  date: "Nov 17, 2024 • Lake Wauburg, FL",
-  caption:
-    "Celebrating our new grant for the ProductiveMath project, funded by the Bill & Melinda Gates Foundation. Great projects start with great teams! Grateful for everyone who joined—including friends and family—for a day full of pizza, balloons, sunshine, and excitement for what’s ahead.",
-  images: [
-    "images/fun/productivemath_2024_1.jpg",   // group photo with balloons
-    "images/fun/productivemath_2024_2.jpg",   // pizza table setup
-    "images/fun/productivemath_2024_3.jpg",   // pavilion group
-    "images/fun/productivemath_2024_4.jpg",   // picnic and food
-  ]
-},
-{
-  id: "october-lab-gathering-2024",
-  title: "October Lab Gathering 🌞",
-  date: "Oct 20, 2024 • Gainesville, FL",
-  caption:
-    "Our October CLASS Lab gathering — food, laughter, and a brand new game that quickly became a favorite! Beautiful weather, wildlife sightings (yes, a few gators 🐊), and great company.",
-  images: [
-    "images/fun/october_2024_1.jpg",   // group photo at picnic table
-    "images/fun/october_2024_2.jpg",   // alligator in water
-    "images/fun/october_2024_3.jpg",    // scenic lake view / birds
-    "images/fun/october_2024_4.jpg"
-  ]
-},
-{
-  id: "september-gathering-2024",
-  title: "September Gathering 🍉",
-  date: "Sep 15, 2024 • Lake Wauburg, FL",
-  caption:
-    "Work hard, play hard! Our first monthly CLASS Lab gathering — full of good food, laughter, and the board game *Stogit*, which sparked creative, critical, and collaborative thinking. Big thanks to Maedeh for preparing this beautiful feast for the team!",
-  images: [
-    "images/fun/sept_2024_1.jpg",   // veggie and hummus platter
-    "images/fun/sept_2024_2.jpg",   // boiled eggs & snacks
-    "images/fun/sept_2024_3.jpg",   // group picnic photo
-    "images/fun/sept_2024_4.jpg"    // wide shot of table gathering
-  ]
-}
-
+    id: "sweetwater-2025",
+    title: "Sweetwater Preserve Trail Hike + Dixit",
+    date: "May 11, 2025 • Gainesville, FL",
+    caption:
+      "Another fun CLASS Lab gathering: ~1.5 hr walk, snacks, and our favorite game—Dixit. Invited a couple of other students too—so fun!",
+    images: [
+      "images/fun/sweetwater_2025_1.jpg",
+      "images/fun/sweetwater_2025_2.jpg",
+      "images/fun/sweetwater_2025_3.jpg"
+    ]
+  },
+  {
+    id: "lachua-2025",
+    title: "La Chua Trail Hike + Game Day",
+    date: "Feb 23, 2025 • Paynes Prairie State Preserve",
+    caption:
+      "1-hour walk 🐊🌿 + game + 🌸 with students fun! This was right after meeting the AIED paper deadline — work hard, play hard.",
+    images: [
+      "images/fun/lachua_2025_3.jpg",
+      "images/fun/lachua_2025_2.jpg",
+      "images/fun/lachua_2025_1.jpg"
+    ]
+  },
+  {
+    id: "productive-math-celebration-2024",
+    title: "ProductiveMath Grant Celebration 🎉",
+    date: "Nov 17, 2024 • Lake Wauburg, FL",
+    caption:
+      "Celebrating our new grant for the ProductiveMath project, funded by the Bill & Melinda Gates Foundation. Great projects start with great teams! Grateful for everyone who joined—including friends and family—for a day full of pizza, balloons, sunshine, and excitement for what’s ahead.",
+    images: [
+      "images/fun/productivemath_2024_1.jpg",
+      "images/fun/productivemath_2024_2.jpg",
+      "images/fun/productivemath_2024_3.jpg",
+      "images/fun/productivemath_2024_4.jpg"
+    ]
+  },
+  {
+    id: "october-lab-gathering-2024",
+    title: "October Lab Gathering 🌞",
+    date: "Oct 20, 2024 • Gainesville, FL",
+    caption:
+      "Our October CLASS Lab gathering — food, laughter, and a brand new game that quickly became a favorite! Beautiful weather, wildlife sightings (yes, a few gators 🐊), and great company.",
+    images: [
+      "images/fun/october_2024_1.jpg",
+      "images/fun/october_2024_2.jpg",
+      "images/fun/october_2024_3.jpg",
+      "images/fun/october_2024_4.jpg"
+    ]
+  },
+  {
+    id: "september-gathering-2024",
+    title: "September Gathering 🍉",
+    date: "Sep 15, 2024 • Lake Wauburg, FL",
+    caption:
+      "Work hard, play hard! Our first monthly CLASS Lab gathering — full of good food, laughter, and the board game *Stogit*, which sparked creative, critical, and collaborative thinking. Big thanks to Maedeh for preparing this beautiful feast for the team!",
+    images: [
+      "images/fun/sept_2024_1.jpg",
+      "images/fun/sept_2024_2.jpg",
+      "images/fun/sept_2024_3.jpg",
+      "images/fun/sept_2024_4.jpg"
+    ]
+  }
 ];
 
-/* ------- Build cards with carousels ------- */
+/* ------- Helpers ------- */
+/* Insert @2x before extension: photo.jpg -> photo@2x.jpg */
+function hi2x(path){
+  return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
+}
+
+/* ------- Build cards ------- */
 const grid = document.getElementById('funGrid');
 
 function cardFor(item){
   const el = document.createElement('article');
   el.className = 'card';
+
+  // Each image gets density-based srcset (1x / 2x) + intrinsic size
   const slides = item.images.map(src => `
-    <div class="slide"><img loading="lazy" src="${src}" alt="${item.title}"></div>
+    <div class="slide">
+      <img
+        loading="lazy"
+        decoding="async"
+        src="${src}"
+        srcset="${src} 1x, ${hi2x(src)} 2x"
+        sizes="(max-width: 700px) 100vw, 33vw"
+        width="800" height="450"
+        alt="${item.title}">
+    </div>
   `).join('');
-  const dots = item.images.map((_,i)=>`<button class="dot" data-idx="${i}" aria-label="Go to slide ${i+1}"></button>`).join('');
+
+  const dots = item.images
+    .map((_,i)=>`<button class="dot" data-idx="${i}" aria-label="Go to slide ${i+1}"></button>`)
+    .join('');
+
   el.innerHTML = `
     <div class="carousel" data-id="${item.id}">
       <div class="slides">${slides}</div>
@@ -230,7 +251,7 @@ function cardFor(item){
 
 FUN.forEach(item => grid.appendChild(cardFor(item)));
 
-/* ------- Carousel interactions (per card) ------- */
+/* ------- Carousel interactions ------- */
 document.querySelectorAll('.carousel').forEach(carousel => {
   const slidesEl = carousel.querySelector('.slides');
   const slideCount = slidesEl.children.length;
@@ -248,13 +269,14 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   carousel.querySelector('.prev').addEventListener('click', prev);
   dots.forEach(d=> d.addEventListener('click', ()=>{ idx = +d.dataset.idx; update(); }));
 
+  // Keyboard
   carousel.tabIndex = 0;
   carousel.addEventListener('keydown', (e)=>{
     if(e.key==='ArrowRight') next();
     if(e.key==='ArrowLeft') prev();
   });
 
-  // Simple swipe
+  // Touch
   let startX = null;
   carousel.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
   carousel.addEventListener('touchmove', (e)=>{
