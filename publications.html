@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications • CLASS Lab</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root{ --ink:#2c3e50; --muted:#5a6b80; --blue:#3498db; --bg:#f8f9fa; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:#2c3e50; background:var(--bg); line-height:1.65}
+    a{color:var(--blue); text-decoration:none}
+    .navbar{ background:linear-gradient(135deg,#2c3e50,#34495e); padding:1rem 0; position:fixed; top:0; left:0; right:0; z-index:1000 }
+    .nav-container{ max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between }
+    .logo-img{height:44px}
+    .nav-links{display:flex; gap:1.6rem; list-style:none}
+    .nav-links a{ color:#ecf0f1 }
+
+    .container{ max-width:980px; margin:0 auto; padding:0 1.25rem }
+    main{ padding-top: 104px; padding-bottom: 60px }
+
+    /* ===== Big titles to align with other pages ===== */
+    .page-title{
+      font-size:2.4rem;
+      font-weight:700;
+      text-align:center;
+      letter-spacing:.2px;
+      margin:0 0 1.6rem;
+      position:relative;
+    }
+    .page-title::after{
+      content:"";
+      display:block;
+      width:64px; height:4px;
+      background:var(--blue);
+      border-radius:2px;
+      margin:.6rem auto 0;
+    }
+    .section-title{
+      font-size:1.75rem;
+      font-weight:700;
+      text-align:center;
+      margin:2.2rem 0 1.1rem;
+      position:relative;
+      letter-spacing:.2px;
+    }
+    .section-title::after{
+      content:"";
+      display:block;
+      width:48px; height:3px;
+      background:var(--blue);
+      border-radius:2px;
+      margin:.5rem auto 0;
+      opacity:.9;
+    }
+
+    .intro{ color:var(--muted); margin-bottom:1.8rem }
+    .pub-type{ margin:2.25rem 0 }
+    .year{ margin:1.2rem 0 .4rem; font-weight:700 }
+    .pub-list{ list-style: none; padding-left: 0; margin: .25rem 0 1rem }
+    .pub-list li{ padding:.5rem 0; border-top:1px solid #e8edf3 }
+    .pub-list li:first-child{ border-top:0 }
+    .pub-title{ font-style: italic }
+    .pub-where{ color:var(--muted) }
+    .pub-link{ font-size:.95rem; margin-left:.35rem }
+
+    #type-encyclopedia h2,
+    #type-preprints h2,
+    #type-presentations h2,
+    #type-other-ref h2,
+    #type-white h2,
+    #type-blogs h2,
+    #type-software h2,
+    #type-thesis h2 { color:#666; border-top:1px dashed #ccc; padding-top:1.2rem; margin-top:2.5rem; }
+
+    @media (max-width:640px){
+      .page-title{ font-size:2rem }
+      .section-title{ font-size:1.5rem }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top nav (links back to your main page) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="lab.html" class="logo" aria-label="Class Lab home">
+        <img src="ClassLabLogo.png" alt="Class Lab Logo" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="lab.html">About</a></li>
+        <li><a href="lab.html#focus">Lab Focus</a></li>
+        <li><a href="lab.html#projects">Projects</a></li>
+        <li><a href="lab.html#publications">Publications</a></li>
+        <li><a href="news.html" id="nav-news">News</a></li>
+        <li><a href="fun.html">Fun</a></li>
+        <li><a href="#contact" id="nav-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Publications</h1>
+
+    <!-- =========================
+         JOURNAL ARTICLES
+    ========================== -->
+    <section class="pub-type" id="type-journal">
+      <h2 class="section-title">Journal Articles</h2>
+
+      <h3 class="year">In Press</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Shute, V. J., &amp; Almond, R. G. (in press).
+          <span class="pub-title">Stealth assessments in digital learning environments: Current trends, new directions, and ethical considerations.</span>
+          <span class="pub-where"><em>Journal of Research on Technology in Education</em> (JRTE).</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2025</h3>
+      <ol class="pub-list">
+        <li>
+          Toofaninejad, E., Bagheri, S., Kalantarion, M., &amp; <strong>Rahimi, S.</strong> (2025).
+          <span class="pub-title">Unlocking knowledge or trapped in distraction? Use of escape room to enhance medical education.</span>
+          <span class="pub-where"><em>Journal of Taibah University Medical Sciences</em>, 20(3), 332–334.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.jtumed.2025.05.001" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2024</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Smith, J. B., Truesdell, E. J. K., Vinay, A., Boyer, K. E., Magerko, B., Freeman, J., &amp; McKlin, T. (2024).
+          <span class="pub-title">An automated, unobtrusive, formative assessment of creativity in a computer science and music remixing learning environment.</span>
+          <span class="pub-where"><em>Psychology of Aesthetics, Creativity, and the Arts</em> (advance online publication).</span>
+          <a class="pub-link" href="https://doi.org/10.1037/aca0000683" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Almond, R., Weisberga, L., Ramírez-Salgado, A., Lu, J., Myers, T., Song, Y., Wang, X., Christine, W., Francois, M., Wang, B., Moses, J., &amp; Wright, E. (2024).
+          <span class="pub-title">Competency model development: The backbone of successful stealth assessments.</span>
+          <span class="pub-where"><em>Journal of Computer Assisted Learning</em>.</span>
+          <a class="pub-link" href="https://doi.org/10.1111/jcal.13025" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Habibi, A., Toofaninejad, E., <strong>Rahimi, S.</strong>, &amp; Kalantarion, M. (2024).
+          <span class="pub-title">The transformative impact of stealth assessment on medical education.</span>
+          <span class="pub-where"><em>Journal of Advances in Medical Education &amp; Professionalism</em>, 12(3), 208–210.</span>
+          <a class="pub-link" href="https://doi.org/10.30476/jamp.2024.101479.1931" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. J. (2024).
+          <span class="pub-title">Stealth assessment: a theoretically grounded and psychometrically sound method to assess, support, and investigate learning in technology-rich environments.</span>
+          <span class="pub-where"><em>Educational Technology Research &amp; Development</em>, 72(5), 2417–2441.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/s11423-023-10232-1" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2023</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong> (2023).
+          <span class="pub-title">Going beyond the brick: Assessing and supporting creativity using AI-powered digital games.</span>
+          <span class="pub-where"><em>Creativity Research Journal</em>, 37(2), 275–283.</span>
+          <a class="pub-link" href="https://doi.org/10.1080/10400419.2023.2241779" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Rafner, J., Wang, Q. J., Gadjacz, M., Badts, T., Baker, B., Bergenholtz, C., Biskjaer, M. M., Bui, T., Carugati, A., de Cibeins, M., Noy, L., <strong>Rahimi, S.</strong>, Tylén, K., Zana, B., Beaty, R. E., &amp; Sherson, J. (2023).
+          <span class="pub-title">Towards game-based assessment of creative thinking.</span>
+          <span class="pub-where"><em>Creativity Research Journal</em>, 35(4), 763–782.</span>
+          <a class="pub-link" href="https://doi.org/10.1080/10400419.2023.2198845" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Walker, J., Lin, L., &amp; Shin, J. (2023).
+          <span class="pub-title">Toward defining and assessing creativity in sandbox games.</span>
+          <span class="pub-where"><em>Creativity Research Journal</em>, 36(2), 194–212.</span>
+          <a class="pub-link" href="https://doi.org/10.1080/10400419.2022.2156477" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2022</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Shute, V. J., Fulwider, C., Bainbridge, K., Kuba, R., Yang, X., Smith, G., Baker, R., &amp; D’Mello, S. (2022).
+          <span class="pub-title">Timing of learning supports in educational games can impact students’ outcomes.</span>
+          <span class="pub-where"><em>Computers &amp; Education</em>, 190, 104600.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.compedu.2022.104600" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Yang, X., <strong>Rahimi, S.</strong>, Fulwider, C., &amp; Smith, G., Shute, V. (2022).
+          <span class="pub-title">Exploring students’ behavioral patterns when playing educational games with learning supports at different timings.</span>
+          <span class="pub-where"><em>Educational Technology Research and Development</em>, 70(4), 1441–1471.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/s11423-022-10125-9" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Bainbridge, K., Shute, V. J., <strong>Rahimi, S.</strong>, Liu, Z., Slater, S., Baker, R. S., &amp; D’Mello, S. (2022).
+          <span class="pub-title">Does embedding learning supports enhance transfer during game-based learning? A case study with Physics Playground.</span>
+          <span class="pub-where"><em>Learning and Instruction</em>, 77, 101547.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.learninstruc.2021.101547" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2021</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. J. (2021).
+          <span class="pub-title">First inspire, then instruct to improve students’ creativity.</span>
+          <span class="pub-where"><em>Computers &amp; Education</em>, 174, 104312.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.compedu.2021.104312" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Kuba, R., <strong>Rahimi, S.</strong>, Smith, G., Shute, V., &amp; Dai, C-P. (2021).
+          <span class="pub-title">Using the first principles of instruction and multimedia learning principles to design and develop in-game learning support videos.</span>
+          <span class="pub-where"><em>Educational Technology Research and Development</em>.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/s11423-021-09994-3" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Shute, V. J., &amp; Zhang, Q. (2021).
+          <span class="pub-title">The effect of game difficulty and conceptual difficulty on student persistence in a learning game: a hierarchical linear modeling approach.</span>
+          <span class="pub-where"><em>International Journal of Technology in Education &amp; Science</em>, 5(2), 141–165.</span>
+          <a class="pub-link" href="https://doi.org/10.46328/ijtes.118" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Shute, V. J., &amp; <strong>Rahimi, S.</strong> (2021).
+          <span class="pub-title">Stealth assessment of creativity using video games.</span>
+          <span class="pub-where"><em>Computers in Human Behavior</em>, 116, 106647.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.chb.2020.106647" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2020</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., <strong>Rahimi, S.</strong>, Smith, G., Ke, F., Almond, R., Dai, C-P., Kamikabeya, R., Liu, Z., Yang, X., &amp; Sun, C. (2020).
+          <span class="pub-title">Maximizing learning without sacrificing the fun: Stealth assessment, adaptivity, and learning supports in educational games.</span>
+          <span class="pub-where"><em>Journal of Computer-Assisted Learning</em>, 37(1), 1–15.</span>
+          <a class="pub-link" href="https://doi.org/10.1111/jcal.12473" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Shute, V. J., Smith, G., Kamikabeya, R., Dai, C-P., <strong>Rahimi, S.</strong>, Liu, Z., &amp; Almond, R. G. (2020).
+          <span class="pub-title">The design, development, and testing of learning supports for the Physics Playground game.</span>
+          <span class="pub-where"><em>International Journal of Artificial Intelligence in Education</em>, 1–23.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/s40593-020-00196-1" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2019</h3>
+      <ol class="pub-list">
+        <li>
+          Spann, C. A., Shute, V. J., <strong>Rahimi, S.</strong>, &amp; D’Mello, S. K. (2019).
+          <span class="pub-title">The productive role of cognitive reappraisal in regulating frustration during game-based learning.</span>
+          <span class="pub-where"><em>Computers in Human Behavior</em>, 100, 358–369.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/j.chb.2019.03.002" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2017</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., &amp; <strong>Rahimi, S.</strong> (2017).
+          <span class="pub-title">Review of computer-based assessment for learning in elementary and secondary education.</span>
+          <span class="pub-where"><em>Journal of Computer Assisted Learning</em>, 33(1), 1–19.</span>
+          <a class="pub-link" href="https://doi.org/10.1111/jcal.12172" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2011</h3>
+      <ol class="pub-list">
+        <li>
+          Binti Mat Sin, N., Ab Aziz, A., Othman, H., <strong>Rahimi, S. A.</strong>, &amp; Woods, P. (2011).
+          <span class="pub-title">E-learning Islamic studies to form four students.</span>
+          <span class="pub-where"><em>Journal of Computer Technology and Application</em>, 2, 439–448.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         BOOK CHAPTERS
+    ========================== -->
+    <section class="pub-type" id="type-chapters">
+      <h2 class="section-title">Book Chapters</h2>
+
+      <h3 class="year">In Press</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Babaee, M., Esmaeiligoujar, S., &amp; Dede, C. (in press).
+          <span class="pub-title">Using Generative AI in K–12 Classrooms to Assess and Support Students’ Creativity: A Scoping Review.</span>
+          <span class="pub-where">In R. Beghetto (Ed.), <em>Oxford Handbook of Human Creativity × Generative AI in Education</em>. Oxford.</span>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Dede, C., Esmaeiligoujar, S., &amp; Babaee, M. (in press).
+          <span class="pub-title">Augmenting human creativity with responsible and ethical use of generative AI.</span>
+          <span class="pub-where">In M. Worwood &amp; J. C. Kaufman (Eds.), <em>Generative Artificial Intelligence and Creativity</em>. Academic Press.</span>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. J. (in press).
+          <span class="pub-title">Personalized learning in educational games using stealth assessment.</span>
+          <span class="pub-where">In M. L. Bernacki &amp; C. Walkington (Eds.), <em>Handbook of Personalized Learning</em> (Part I). Routledge.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2023</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Almond, R., &amp; Shute, V. (2023).
+          <span class="pub-title">Stealth assessment’s technical architecture.</span>
+          <span class="pub-where">In McCreery &amp; Krach (Eds.), <em>Games as Stealth Assessments</em>, pp. 61–80. IGI Global.</span>
+          <a class="pub-link" href="https://doi.org/10.4018/979-8-3693-0568-3.ch003" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Almond, R., Shute, V. J., &amp; Sun, C. (2023).
+          <span class="pub-title">Getting the first and second decimals right: Psychometrics of stealth assessment.</span>
+          <span class="pub-where">In McCreery &amp; Krach (Eds.), <em>Games as Stealth Assessments</em>, pp. 125–153. IGI Global.</span>
+          <a class="pub-link" href="https://doi.org/10.4018/979-8-3693-0568-3.ch006" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Smith, G., Shute, V. J., <strong>Rahimi, S.</strong>, Kuba, R., &amp; Dai, C.-P. (2023).
+          <span class="pub-title">Stealth assessment and digital learning game design.</span>
+          <span class="pub-where">In McCreery &amp; Krach (Eds.), <em>Games as Stealth Assessments</em>, pp. 81–100. IGI Global.</span>
+          <a class="pub-link" href="https://doi.org/10.4018/979-8-3693-0568-3.ch004" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2021</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. J. (2021).
+          <span class="pub-title">Learning analytics dashboards in educational games.</span>
+          <span class="pub-where">In Sahin &amp; Ifenthaler (Eds.), <em>Visualizations and Dashboards for Learning Analytics</em>, pp. 527–546. Springer.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/978-3-030-81222-5_24" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. (2021).
+          <span class="pub-title">The effects of video games on creativity.</span>
+          <span class="pub-where">In Russ, Hoffmann, &amp; Kaufman (Eds.), <em>The Cambridge Handbook of Lifespan Development of Creativity</em>, pp. 368–392. Cambridge University Press.</span>
+          <a class="pub-link" href="https://doi.org/10.1017/9781108755726.021" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2020</h3>
+      <ol class="pub-list">
+        <li>
+          Almond, R. G., Shute, V. J., Tingir, S., &amp; <strong>Rahimi, S.</strong> (2020).
+          <span class="pub-title">Identifying observable outcomes in game-based assessments.</span>
+          <span class="pub-where">In Lissitz &amp; Jiao (Eds.), <em>Applications of Artificial Intelligence to Assessment</em>. IAP.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2019</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., Ke, F., Almond, R. G., <strong>Rahimi, S.</strong>, Smith, G., &amp; Lu, X. (2019).
+          <span class="pub-title">How to increase learning while not decreasing the fun in educational games.</span>
+          <span class="pub-where">In R. Feldman (Ed.), <em>Learning Science: Theory, Research, and Practice</em>. McGraw-Hill.</span>
+        </li>
+        <li>
+          Shute, V. J., <strong>Rahimi, S.</strong>, &amp; Smith, G. (2019).
+          <span class="pub-title">Game-based learning analytics in Physics Playground.</span>
+          <span class="pub-where">In M. Chang &amp; A. Tlili (Eds.), <em>Data Analytics Approaches in Educational Games and Gamification Systems</em>. Springer.</span>
+        </li>
+        <li>
+          Shute, V. J., <strong>Rahimi, S.</strong>, &amp; Lu, X. (2019).
+          <span class="pub-title">Supporting learning in educational games: Promises and challenges.</span>
+          <span class="pub-where">In Díaz et&nbsp;al. (Eds.), <em>Learning in a Digital World</em>. Springer.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2018</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., <strong>Rahimi, S.</strong>, &amp; Emihovich, B. (2018).
+          <span class="pub-title">Assessment for learning in immersive environments.</span>
+          <span class="pub-where">In Lui, Dede, Huang, &amp; Richards (Eds.), <em>Virtual, Augmented, and Mixed Realities in Education</em>, pp. 71–89. Springer.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2017</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., <strong>Rahimi, S.</strong>, &amp; Sun, C. (2017).
+          <span class="pub-title">Measuring and supporting learning in educational games.</span>
+          <span class="pub-where">In Young &amp; Slota (Eds.), <em>Exploding the Castle</em>, pp. 192–210. IAP.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         ENCYCLOPEDIA / REFERENCE
+    ========================== -->
+    <section class="pub-type" id="type-encyclopedia">
+      <h2 class="section-title">Encyclopedia &amp; Reference Entries</h2>
+
+      <h3 class="year">2023</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., Fulwider, G. C., Liu, Z., &amp; <strong>Rahimi, S.</strong> (2023).
+          <span class="pub-title">Machine Learning.</span>
+          <span class="pub-where"><em>International Encyclopedia of Education</em> (4th ed.), 83–91. Elsevier.</span>
+          <a class="pub-link" href="https://doi.org/10.1016/B978-0-12-818630-5.14013-8" target="_blank" rel="noopener">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2021</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., Lu, X., &amp; <strong>Rahimi, S.</strong> (2021).
+          <span class="pub-title">Stealth assessment.</span>
+          <span class="pub-where"><em>The Routledge Encyclopedia of Education</em>, 1–9. Taylor &amp; Francis.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2020</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong> (2020).
+          <span class="pub-title">Virtual Reality in education.</span>
+          <span class="pub-where"><em>The Iranian Encyclopedia of Curriculum and Instruction</em>. Tehran, Iran.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         REFEREED CONFERENCE PROCEEDINGS
+    ========================== -->
+    <section class="pub-type" id="type-conference">
+      <h2 class="section-title">Conference Proceedings</h2>
+
+      <h3 class="year">2025</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Ercan, D., Gao, R., Esmaeiligoujar, S., Babaee, M., Li, H., Zhang, S., Lee, S., Closser, A., &amp; Botelho, A. (2025).
+          <span class="pub-title">ProductiveMath: A Generative-AI-Powered App to Support Productive Failure Teaching.</span>
+          <span class="pub-where"><em>AIED 2025</em>, 344–351. Springer.</span>
+          <a class="pub-link" href="https://doi.org/10.1007/978-3-031-99264-3_43" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          Ercan, D., Esmaeiligoujar, S., & <strong>Rahimi, S.</strong> (2025).
+          <span class="pub-title">Improving Pre-K–12 Students’ Executive Functions Using Digital Games: A Systematic Review.</span>
+          <span class="pub-where"><em>ICLS 2025</em>, 826–834. ISLS.</span>
+          <a class="pub-link" href="https://repository.isls.org//handle/1/11810" target="_blank" rel="noopener">Proceedings</a>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Esmaeiligoujar, S., Gao, R., Ercan, D., &amp; Keawphonkrang, S. (2025).
+          <span class="pub-title">The Effects of Digital Games on Pre-K–12 Students’ Growth Mindset: A Systematic Review.</span>
+          <span class="pub-where"><em>ICLS 2025</em>, 476–483. ISLS.</span>
+        </li>
+        <li>
+          Leite, W. L., Hammerschmidt-Snidarich, S., Huggins-Manley, A. C., Karakis, H. K., Lane, H., <strong>Rahimi, S.</strong>, Shen, Q., Tai, X., &amp; Schmidt, M. (2025).
+          <span class="pub-title">Storiza: A Platform to Support Children’s Oral Reading Fluency Development With Generative AI.</span>
+          <span class="pub-where"><em>ICLS 2025</em>, 1574–1578. ISLS.</span>
+        </li>
+        <li>
+          Walker, J. T., <strong>Rahimi, S.</strong>, Barany, A., &amp; Lin-Lipsmeyer, L. (2025).
+          <span class="pub-title">Generative Inquiry: Creativity Assessments of Youth Epistemic Agency in a Computational Data Science Workshop.</span>
+          <span class="pub-where"><em>ICLS 2025</em>, 538–546. ISLS.</span>
+        </li>
+        <li>
+          Mehrvarz, M., Abdoli, S., Kahveci, E. N., <strong>Rahimi, S.</strong>, &amp; McLaren, B. M. (2025).
+          <span class="pub-title">The Impact of Hint Modality in Digital Game-Based Learning: A Systematic Literature Review.</span>
+          <span class="pub-where"><em>ICLS 2025</em>, 2939–2941. ISLS.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2024</h3>
+      <ol class="pub-list">
+        <li>
+          Babaee, M., <strong>Rahimi, S.</strong>, &amp; Esmaeiligoujar, S. (2024).
+          <span class="pub-title">Fostering K-12 Students’ Computational Thinking Skills Using Collaborative Technology-rich Learning Environments: A Systematic Review.</span>
+          <span class="pub-where"><em>ICLS 2024</em>, 786–792. ISLS.</span>
+        </li>
+        <li>
+          Esmaeiligoujar, S., <strong>Rahimi, S.</strong>, &amp; Babaee, M. (2024).
+          <span class="pub-title">Using Digital Games to Enhance 21st-Century Skills Development in K-12 Education: A Systematic Review.</span>
+          <span class="pub-where"><em>ICLS 2024</em>, 2197–2198. ISLS.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2023</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Smith, J. B., Truesdell, E. J. K., Vinay, A., Boyer, K. E., Magerko, B., Freeman, J., &amp; McKlin, T. (2023).
+          <span class="pub-title">Validity and Fairness of an Automated Assessment of Creativity in Computational Music Remixing.</span>
+          <span class="pub-where"><em>AIED 2023 Workshop (CEUR)</em>, 36–44.</span>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Shute, V., Khodabandelou, R., Kuba, R., Babaee, M., &amp; Esmaeiligoujar, S. (2023).
+          <span class="pub-title">Stealth assessment: A systematic review of the literature.</span>
+          <span class="pub-where"><em>ICLS 2023</em>, 1977–1978. ISLS.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2022</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Walker, J., Lin, L., &amp; Shin, J. (2022).
+          <span class="pub-title">In pursuit of creativity in Minecraft: A mixed-method approach.</span>
+          <span class="pub-where"><em>ICLS 2022</em>, 1397–1400. ISLS.</span>
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Fulwider, C., Jiang, S., &amp; Shute, V. J. (2022).
+          <span class="pub-title">Predicting learning gains in an educational game using feature engineering and machine learning.</span>
+          <span class="pub-where"><em>ICLS 2022</em>, 2124–2125. ISLS.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2018</h3>
+      <ol class="pub-list">
+        <li>
+          Karumbaiah, S., <strong>Rahimi, S.</strong>, Baker, R. S., Shute, V. J., &amp; D’Mello, S. (2018).
+          <span class="pub-title">Is student frustration in learning games more associated with game mechanics or conceptual understanding?</span>
+          <span class="pub-where"><em>ICLS 2018</em>. London, UK.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2016</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Shute, V. J. (2016).
+          <span class="pub-title">Designing the class as a game to promote active learning in K–12 education: A literature review.</span>
+          <span class="pub-where"><em>AECT 2016 Proceedings</em>, 109–117. Las Vegas, NV.</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2011</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Song, H., &amp; Agharazidermani, M. (2011).
+          <span class="pub-title">Perception and experiences of undergraduate students on using Second Life as a learning tool.</span>
+          <span class="pub-where"><em>EDULEARN11</em>, 6181–6190. IATED (Barcelona).</span>
+        </li>
+        <li>
+          Agharazidermani, M., Song, H., &amp; <strong>Rahimi, S.</strong> (2011).
+          <span class="pub-title">Microblogging as an educational tool to advance learning: case studies and recent reports.</span>
+          <span class="pub-where"><em>EDULEARN11</em>, 6191–6196. IATED (Barcelona).</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2010</h3>
+      <ol class="pub-list">
+        <li>
+          Othman, H., <strong>Rahimi, S.</strong>, &amp; Mat Sin, N. (2010).
+          <span class="pub-title">Effectiveness of e-learning Islamic studies for Form Four students.</span>
+          <span class="pub-where"><em>Regional Conference on Knowledge Integration in ICT</em>, Kuala Lumpur.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         OTHER REFEREED (reports/briefs)
+    ========================== -->
+    <section class="pub-type" id="type-other-ref">
+      <h2 class="section-title">Other Refereed Publications</h2>
+
+      <h3 class="year">2024</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Esmaeiligoujar, S. (2024).
+          <span class="pub-title">UF’s AI in Education Workshop: A Perspective from Academia and Learning Industry.</span>
+          <span class="pub-where">Digital Promise &amp; ISLS Rapid Community Report Series, 1–20.</span>
+          <a class="pub-link" href="https://repository.isls.org//handle/1/11209" target="_blank" rel="noopener">Link</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2022</h3>
+      <ol class="pub-list">
+        <li>
+          Shute, V. J., &amp; <strong>Rahimi, S.</strong> (2022).
+          <span class="pub-title">Stealth assessment: A primer.</span>
+          <span class="pub-where">Digital Promise &amp; ISLS Rapid Community Report Series, 1–11.</span>
+          <a class="pub-link" href="https://repository.isls.org//handle/1/7671" target="_blank" rel="noopener">Link</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         WHITE PAPERS
+    ========================== -->
+    <section class="pub-type" id="type-white">
+      <h2 class="section-title">White Papers</h2>
+
+      <h3 class="year">2024</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, &amp; Esmaeiligoujar, S. (2024).
+          <span class="pub-title">UF’s Artificial Intelligence in Education Workshop: A State-of-the-Art Perspective from Academia and Industry.</span>
+          <span class="pub-where">Institute for Advanced Learning Technologies (IALT), University of Florida.</span>
+          <a class="pub-link" href="https://ialt.education.ufl.edu/ai-in-education-workshop/" target="_blank" rel="noopener">Summary</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================
+         BLOG POSTS
+    ========================== -->
+    <section class="pub-type" id="type-blogs">
+      <h2 class="section-title">Invited Posts on Educational Blogs</h2>
+
+      <h3 class="year">2023</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong> (2023, Nov 3).
+          <span class="pub-title">I decide to be creative and study it creatively.</span>
+          <span class="pub-where">Messier Blog (Creativity).</span>
+          <a class="pub-link" href="https://www.messier.co/post/i-decide-to-be-creative-and-study-it-creatively" target="_blank" rel="noopener">Post</a>
+        </li>
+      </ol>
+
+      <h3 class="year">2020</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong> (2020, Jun 22).
+          <span class="pub-title">The inspirational silver lining for learning in Iran.</span>
+          <span class="pub-where">Silver Lining for Learning Blog.</span>
+          <a class="pub-link" href="https://silverliningforlearning.org/the-inspirational-silver-lining-for-learning-in-iran/" target="_blank" rel="noopener">Post</a>
+        </li>
+      </ol>
+    </section>
+
+
+    <!-- =========================
+         PRESENTATIONS (REFEREED + INVITED)
+    ========================== -->
+    <section class="pub-type" id="type-presentations">
+      <h2 class="section-title">Conference Presentations &amp; Invited Talks</h2>
+
+      <h3 class="year">2025</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Esmaeiligoujar, S., Gao, R., Ercan, D., &amp; Keawphonkrang, S. (Jun 2025).
+          <span class="pub-title">Effects of Digital Games on K–12 Students’ Growth Mindset.</span> ICLS, Helsinki.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Celik, D., Gao, R., Esmaeiligoujar, S., Li, H. C., &amp; Botelho, A. (Apr 2025).
+          <span class="pub-title">Using Generative AI for Automated Human-Creativity Assessment and Machine Creativity in a Sandbox Game.</span> AERA, Denver.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Li, H., Celik, D., Esmaeiligoujar, S., Gao, R., &amp; Botelho, A. (Mar 2025).
+          <span class="pub-title">Automated Human-Creativity Assessment and Machine Creativity in a Sandbox Game Using Generative AI.</span> APA Division 10 (SPACA), New Haven, CT.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Ercan, D., Gao, R., Esmaeiligoujar, S., Babaee, M., Li, H., Zhang, S., Lee, S., Closser, A., &amp; Botelho, A. (Jul 2025).
+          <span class="pub-title">ProductiveMath: A Generative-AI Web-based Application to Support Productive Failure Teaching.</span> AIED, Palermo.
+        </li>
+      </ol>
+
+      <h3 class="year">2025 (FERA & UF Symposiums)</h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Esmaeiligoujar, S., Ercan, D., Babaee, M., &amp; Gao, R. (Nov 2025).
+          <span class="pub-title">Small vs. Large Language Models: Comparing Language Models in Generating Productive Failure Math Problems.</span> FERA, Fort Myers, FL.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Esmaeiligoujar, S., Gao, R., Ercan, D., &amp; Babaee, M. (Nov 2025).
+          <span class="pub-title">ProductiveMath: A Human-in-the-Loop AI Web-based Application to Support Teachers in Productive Failure Teaching in Algebra.</span> FERA, Fort Myers, FL.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Gao, R., Celik, D., Esmaeiligoujar, S., Li, H. C., &amp; Botelho, A. (Apr 2025).
+          <span class="pub-title">Using Generative AI for Automated Creativity Assessment &amp; Machine Creativity in a Sandbox Game.</span> AERA, Denver.
+        </li>
+      </ol>
+
+      <h3 class="year">2024 </h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Smith, J. B., Truesdell, E. J. K., Vinay, A., Boyer, K. E., Magerko, B., Freeman, J., &amp; McKlin, T. (Mar 2024).
+          <span class="pub-title">A Validation Study of an Automated, Formative Assessment of Creativity in a Computational Music Remixing Learning Environment.</span> PACA Division 10 Symposium, Denton, TX.
+        </li>
+        <li>
+          Esmaeiligoujar, S., <strong>Rahimi, S.</strong>, &amp; Babaee, M. (Apr–Jun 2024).
+          <span class="pub-title">21st-Century Skills Development Through Educational Digital Games: A Systematic Review.</span> AERA 2024 (poster); ISLS 2024 (poster).
+        </li>
+        <li>
+          Babaee, M., <strong>Rahimi, S.</strong>, &amp; Esmaeiligoujar, S. (Apr–Jun 2024).
+          <span class="pub-title">Fostering K-12 Students’ Computational Thinking Skills Using Collaborative Technology-Rich Learning Environments.</span> AERA 2024; ISLS 2024.
+        </li>
+      </ol>
+
+      <h3 class="year">2023 </h3>
+      <ol class="pub-list">
+        <li>
+          <strong>Rahimi, S.</strong>, Shute, V., Khodabandelou, R., Kuba, R., Babaee, M., &amp; Esmaeiligoujar, S. (Jun 2023).
+          <span class="pub-title">Stealth assessment: A systematic review of the literature.</span> ISLS 2023, Montreal.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong> (Jun 2023).
+          <span class="pub-title">Stealth assessment: A theory-driven, evidence-based approach.</span> Jean Piaget Society, Spain.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Walker, J., Lin-Lipsmeyer, L. (Oct 2023).
+          <span class="pub-title">Assessing creativity in Minecraft.</span> AECT 2023, Orlando.
+        </li>
+        <li>
+          <strong>Rahimi, S.</strong>, Smith, J. B., Truesdell, E. J. K., Vinay, A., Boyer, K. E., Magerko, B., Freeman, J., &amp; McKlin, T. (Jul 2023).
+          <span class="pub-title">Validity and fairness of an automated assessment of creativity in computational music remixing.</span> AIED 2023 Workshop (Tokyo).
+        </li>
+      </ol>
+    </section>
+
+  </main>
+</body>
+</html>

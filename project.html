@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project • Class Lab</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <ul class="nav-links">
+  <li><a href="index.html#about">About</a></li>
+  <li><a href="index.html#focus">Lab Focus</a></li>
+  <li><a href="index.html#projects">Projects</a></li>
+  <li><a href="index.html#publications">Publications</a></li>
+  <li><a href="index.html#news">News</a></li>
+  <li><a href="#contact" id="nav-contact">Contact</a></li>
+</ul>
+
+  <style>
+    :root{
+      --ink:#2c3e50; --muted:#5a6b80; --blue:#3498db;
+      --blue2:#2980b9; --bg:#f8f9fa; --card:#fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif;
+      color:#333;background:var(--bg);line-height:1.65;
+    }
+    a{color:var(--blue);text-decoration:none}
+    .navbar{
+    background: linear-gradient(135deg,#2c3e50,#34495e);
+    padding: 1rem 0;
+    position: fixed;        /* was sticky */
+    top: 0; left: 0; right: 0;
+    z-index: 5000;          /* higher than any content */
+    }
+    .nav-container{
+      max-width:1200px;margin:0 auto;padding:0 2rem;
+      display:flex;align-items:center;justify-content:space-between
+    }
+    .logo-img{height:45px}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:#ecf0f1}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+    /* === Hero === */
+    .proj-hero{
+      margin-top:0;
+       background:linear-gradient(135deg, rgba(52,73,94,.9), rgba(41,128,185,.85)),
+             url('images/ProjectBanner_Default.jpg') center/cover no-repeat;
+    color:#fff;border-radius:18px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+    }
+    main.container{
+    padding-top: 88px;   /* adjust to your bar height (80–92px) */
+    }
+    .proj-hero-inner{
+      display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;padding:2.25rem;
+      align-items:center;
+    }
+    .breadcrumb{margin:1rem 0 0;color:#cfe7ff;font-size:.95rem}
+    .breadcrumb a{color:#fff;text-decoration:underline}
+    .proj-hero h1{
+      font-size:2.6rem;line-height:1.2;margin-bottom:.75rem;
+      font-weight:800;letter-spacing:-.5px;
+    }
+    .hero-desc{
+      margin-top:.6rem;
+      font-size:1.05rem;
+      line-height:1.8;
+      color:rgba(255,255,255,.95);
+      max-width:58ch;
+    }
+    .hero-img{
+      width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;
+      background:#eef5fb;box-shadow:0 10px 24px rgba(0,0,0,.18)
+    }
+    .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+    @media (max-width:980px){ .proj-hero-inner{grid-template-columns:1fr} }
+
+    /* === Main content === */
+    .page-grid{
+      display:grid;
+      grid-template-columns:1fr 340px;
+      gap:1.5rem;
+      margin:2rem 0;
+    }
+    @media (max-width:980px){ .page-grid{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:1.75rem;
+      box-shadow:0 10px 26px rgba(0,0,0,.08)
+    }
+    .card h2{
+      font-size:1.4rem;
+      color:var(--ink);
+      margin-bottom:.65rem;
+    }
+    .lead{color:var(--muted)}
+    /* Or just add top margin to any card that follows another card */
+        .card + .card { 
+        margin-top: 1.5rem; 
+        }
+
+    /* Sidebar */
+    .side .card{position:sticky;top:90px}
+    .meta{display:grid;gap:.8rem;margin-top:.3rem}
+    .meta-row{display:flex;gap:.6rem;align-items:flex-start}
+    .meta i{color:var(--blue);margin-top:.2rem}
+
+    /* Publications */
+    .pub-year{margin:1.25rem 0}
+    .pub-year h3{
+      color:var(--ink);
+      font-size:1.05rem;
+      margin:.2rem 0 .8rem;
+      border-left:4px solid var(--blue);
+      padding-left:.6rem;
+    }
+    .pub{
+      background:linear-gradient(145deg,#fff,#f8f9fa);
+      border-left:4px solid var(--blue);
+      padding:1rem;
+      border-radius:12px;
+      margin:.65rem 0;
+      box-shadow:0 8px 24px rgba(0,0,0,.06)
+    }
+    .pub .title{font-style:italic;color:#34495e}
+    .pub .where{color:var(--blue);font-weight:600}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="nav-container">
+    <a href="lab.html" class="logo" aria-label="Class Lab home">
+      <img src="ClassLabLogo.png" alt="Class Lab Logo" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="lab.html#focus">Lab Focus</a></li>
+      <li><a href="lab.html#projects">Projects</a></li>
+      <li><a href="lab.html#publications">Publications</a></li>
+      <li><a href="lab.html#news">News</a></li>
+      <li><a href="fun.html">Fun</a></li>
+       <li><a href="#contact" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <main class="container" id="app" hidden>
+    <!-- HERO -->
+    <section class="proj-hero">
+      <div class="proj-hero-inner">
+        <div>
+          <div class="breadcrumb">
+            <a href="lab.html#projects">Projects</a> &raquo; <span id="crumb-title">Project</span>
+          </div>
+          <h1 id="proj-title">Project Title</h1>
+          <p class="hero-desc" id="hero-desc"></p>
+        </div>
+        <div class="hero-img" id="hero-img"></div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="page-grid">
+      <div>
+        <article class="card" id="panel-desc">
+          <h2>Project Description</h2>
+          <div id="desc"></div>
+        </article>
+
+        <article class="card" id="panel-pubs">
+          <h2>Publications</h2>
+          <div id="pubs"></div>
+        </article>
+      </div>
+
+      <aside class="side">
+        <div class="card">
+          <h2>Project Details</h2>
+          <div class="meta" id="meta-box"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const PROJECTS_DATA = {
+  "productive-failure": {
+    title: "Productive Failure",
+    hero:
+      "Productive Failure leverages carefully sequenced challenges—where learners attempt complex problems before instruction—to deepen conceptual understanding and transfer. Our work explores how AI can generate, curate, and scaffold PF tasks while keeping assessment stealthy and formative.",
+    image: "images/ProductiveMath.png",
+    meta: {
+      Lead: "Dr. Seyedahmad Rahimi",
+      Sponsor: "Bill & Melinda Gates Foundation",
+      Funding: "$451,563",
+      Duration: "2024–2026",
+      Contact: "classlab@university.edu"
+    },
+    description: [
+      {
+        h: "What is Productive Failure?",
+        p: "In a PF sequence, students first tackle non-trivial problems with minimal guidance, surfacing prior knowledge and misconceptions. Targeted instruction follows, yielding durable learning."
+      },
+      {
+        h: "Our platform: ProductiveMath",
+        p: "An AI-powered authoring and delivery tool that (1) generates diverse PF tasks, (2) detects strategies via process data, and (3) serves just-in-time scaffolds without spoiling struggle."
+      },
+      {
+        h: "Research questions",
+        list: [
+          "How well do AI-generated PF tasks elicit target strategies and misconceptions?",
+          "Can stealth signals (attempts, sequences, time) model productive struggle?",
+          "What supports keep struggle desirable for varied learners?"
+        ]
+      }
+    ],
+    publications: {
+      "In Press": [
+        {
+          authors: "Rahimi, S., Almond, R., & Shute, V.",
+          title: "Stealth assessment’s technical architecture.",
+          where: "In McCreery & Krach (Eds.), Games as Stealth Assessments. DIO Press."
+        }
+      ],
+      "2024": [
+        {
+          authors: "Rahimi, S., Johnson, M., & Chen, L.",
+          title: "AI-enhanced stealth assessment in virtual learning environments.",
+          where: "Journal of Educational Technology Research, 45(3), 234–251."
+        }
+      ]
+    }
+  },
+
+  "creative": {
+    title: "Creative",
+    hero:
+      "Using large multimodal models to assess creativity and generate game levels in Physics Playground—toward scalable, valid measures of creative production.",
+    image: "images/Creative.png",
+    meta: {
+      Lead: "Dr. Seyedahmad Rahimi",
+      Sponsor: "UF / Internal seed",
+      Funding: "—",
+      Duration: "2024–",
+      Contact: "classlab@university.edu"
+    },
+    description: [
+      {
+        h: "Overview",
+        p: "We train and prompt LMMs to rate novelty, usefulness, and surprise of human-authored levels, compare to expert rubrics, and study bias and reliability."
+      },
+      {
+        h: "Methods",
+        list: [
+          "Multimodal prompting pipelines (image + text)",
+          "Rater-agreement calibration vs. human experts",
+          "Auto-generation with constraint checks for playability"
+        ]
+      }
+    ],
+    publications: {
+      "In Prep": [
+        {
+          authors: "Rahimi, S., Ercan, D., & Gao, R.",
+          title: "Multimodal creativity assessment for user-generated game levels.",
+          where: "Manuscript in preparation."
+        }
+      ]
+    }
+  },
+
+  "storiza": {
+    title: "Storiza",
+    hero:
+      "A child-centered reading app that turns kids’ ideas into personalized stories to support oral reading fluency (ORF). Built during the NSF/Digital Promise VITAL Prize Challenge.",
+    image: "images/Storiza.png",
+    meta: {
+      Lead: "Class Lab",
+      Sponsor: "NSF / Digital Promise (VITAL)",
+      Funding: "Prototype phase",
+      Duration: "2023–2024",
+      Contact: "classlab@university.edu"
+    },
+    description: [
+      {
+        h: "What Storiza does",
+        list: [
+          "Captures a child’s prompt and reading level",
+          "Generates short, decodable stories with aligned vocabulary",
+          "Tracks ORF and provides gentle, embedded feedback"
+        ]
+      },
+      {
+        h: "Planned studies",
+        p: "Pilot tests in after-school programs comparing engagement and ORF growth vs. standard leveled readers."
+      }
+    ],
+    publications: {
+      "Reports": [
+        {
+          authors: "Class Lab",
+          title: "Storiza: Creativity-driven reading practice.",
+          where: "VITAL Prize project brief."
+        }
+      ]
+    }
+  },
+
+  "physics-playground": {
+    title: "Physics Playground",
+    hero:
+      "A 2D game for conceptual physics where students draw simple machines to solve puzzles—embedded with stealth assessment for real-time evidence of learning.",
+    image: "images/PP.png",
+    meta: {
+      Lead: "Collaborative Team",
+      Sponsor: "National Science Foundation",
+      Funding: "$4M+ (cumulative)",
+      Duration: "2010–2023",
+      Contact: "classlab@university.edu"
+    },
+    description: [
+      {
+        h: "Impact",
+        p: "Multiple RCTs and classroom pilots demonstrate gains in Newtonian mechanics understanding and problem-solving."
+      },
+      {
+        h: "Tech & Analytics",
+        list: [
+          "Gesture recognition from drawing traces",
+          "Evidence-centered design (ECD) models",
+          "Adaptive hints and level sequencing"
+        ]
+      }
+    ],
+    publications: {
+      "Selected": [
+        {
+          authors: "Shute, V., Rahimi, S., et al.",
+          title: "Stealth assessment in game-based physics learning.",
+          where: "Various venues, 2014–2023."
+        }
+      ]
+    }
+  },
+
+  "earsketch": {
+    title: "EarSketch",
+    hero:
+      "A free web platform where students learn computing through music by writing code to compose—used by hundreds of thousands worldwide.",
+    image: "images/Earsketch.png",
+    meta: {
+      Lead: "Georgia Tech (collaboration)",
+      Sponsor: "NSF and partners",
+      Funding: "Multi-sponsor",
+      Duration: "2011–present",
+      Contact: "classlab@university.edu"
+    },
+    description: [
+      {
+        h: "Why it matters",
+        p: "Contextualized, culturally responsive CS learning increases motivation and retention, especially among underrepresented groups."
+      },
+      {
+        h: "Our contributions",
+        list: [
+          "Assessment instrumentation for creative computing",
+          "Curriculum studies and teacher PD",
+          "Analysis of engagement logs at scale"
+        ]
+      }
+    ],
+    publications: {
+      "Highlights": [
+        {
+          authors: "Freeman, J., Magerko, B., collaborators incl. Rahimi, S.",
+          title: "Learning CS through music with EarSketch.",
+          where: "Selected papers and reports, 2013–2022."
+        }
+      ]
+    }
+  }
+};
+
+    /* === Helper functions === */
+    function qs(k, d=window.location.search){return new URLSearchParams(d).get(k);}
+    function el(tag, attrs={}, children=[]){
+      const n=document.createElement(tag);
+      for(const [k,v] of Object.entries(attrs)){
+        if(k==='html')n.innerHTML=v;
+        else if(k==='text')n.textContent=v;
+        else n.setAttribute(k,v);
+      }
+      (Array.isArray(children)?children:[children]).filter(Boolean).forEach(c=>n.appendChild(c));
+      return n;
+    }
+
+    /* === Render === */
+    (function render(){
+      const id=(qs('id')||'').toLowerCase();
+      const data=PROJECTS_DATA[id];
+      if(!data){
+        document.body.innerHTML=`<nav class="navbar"><div class="nav-container">
+          <a href="index.html" class="logo"><img src="ClassLabLogo.png" class="logo-img" alt="Logo"></a>
+          <ul class="nav-links"><li><a href="index.html#projects">Back to Projects</a></li></ul>
+        </div></nav>
+        <div class="container" style="padding:2rem">
+          <div class="card"><h2>Project not found</h2>
+          <p>We couldn’t find a project with id <code>${id || '(none)'}</code>.
+          Go back to <a href="index.html#projects">Projects</a>.</p></div>
+        </div>`;
+        return;
+      }
+
+      document.getElementById('app').hidden=false;
+      document.getElementById('proj-title').textContent=data.title;
+      document.getElementById('crumb-title').textContent=data.title;
+      document.getElementById('hero-desc').textContent=data.hero || data.intro || "";
+      const heroImg=document.getElementById('hero-img');
+      heroImg.innerHTML=`<img src="${data.image || 'images/ProjectBanner_Default.jpg'}" alt="${data.title} hero image" loading="lazy">`;
+
+      // Description
+      const dWrap=document.getElementById('desc');
+      (data.description||[]).forEach(block=>{
+        if(block.h) dWrap.appendChild(el('h3',{text:block.h,style:"margin:1rem 0 .4rem;color:#2c3e50"}));
+        if(block.p) dWrap.appendChild(el('p',{text:block.p,style:"color:#5a6b80"}));
+        if(block.list){
+          const ul=el('ul',{style:"margin:.5rem 0 1rem .9rem;color:#5a6b80"});
+          block.list.forEach(item=>ul.appendChild(el('li',{text:item})));
+          dWrap.appendChild(ul);
+        }
+      });
+
+      // Publications
+      const pWrap=document.getElementById('pubs');
+      Object.entries(data.publications||{}).forEach(([year,items])=>{
+        const yr=el('div',{class:'pub-year'},[el('h3',{text:year})]);
+        items.forEach(it=>{
+          const box=el('div',{class:'pub'});
+          box.append(
+            el('div',{class:'authors',html:`<strong>${it.authors}</strong>`}),
+            el('div',{class:'title',text:it.title}),
+            el('div',{class:'where',text:it.where})
+          );
+          yr.appendChild(box);
+        });
+        pWrap.appendChild(yr);
+      });
+
+      // Meta details
+      const meta=document.getElementById('meta-box');
+      Object.entries(data.meta||{}).forEach(([k,v])=>{
+        meta.appendChild(el('div',{class:'meta-row'},[
+          el('i',{class:'fa-solid fa-circle-info','aria-hidden':'true'}),
+          el('div',{html:`<strong>${k}:</strong> ${v}`})
+        ]));
+      });
+    })();
+  </script>
+</body>
+</html>

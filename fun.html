@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fun & Community • CLASS Lab</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<style>
+  :root{ --ink:#2c3e50; --muted:#5a6b80; --blue:#3498db; --bg:#f8f9fa; --shadow:0 12px 30px rgba(0,0,0,.10); }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
+
+  /* NAV (matches other pages) */
+  .navbar{ background:linear-gradient(135deg,#2c3e50,#34495e); padding:1rem 0; position:fixed; top:0; left:0; right:0; z-index:1000; }
+  .nav-container{ max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; }
+  .logo-img{ height:44px; }
+  .nav-links{ display:flex; gap:1.6rem; list-style:none; }
+  .nav-links a{ color:#ecf0f1; text-decoration:none; }
+  .nav-links a[href="fun.html"]::after {
+  display: none !important;
+}
+
+
+  /* PAGE WRAP */
+  main{ padding-top:104px; padding-bottom:60px; }
+  .container{ max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+  .section-title{ text-align:center; font-size:2.5rem; font-weight:800; color:#2c3e50; margin-bottom:.6rem; }
+  .section-underline{ width:72px; height:6px; background:var(--blue); border-radius:4px; margin:.4rem auto 1.6rem; }
+  .intro{ text-align:center; color:#5a6b80; max-width:760px; margin:0 auto 1.8rem; font-size:1.05rem; }
+
+  /* Card grid */
+  .fun-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.4rem; }
+  .card{ background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .card-body{ padding:1rem 1.1rem 1.2rem; }
+  .card-title{ font-weight:800; font-size:1.1rem; color:#213247; line-height:1.35; margin:0 0 .25rem; }
+  .card-meta{ color:#6b7a90; font-size:.92rem; margin-bottom:.4rem; }
+  .card-caption{ color:#5a6b80; font-size:.98rem; }
+
+  /* Carousel */
+  .carousel{ position:relative; width:100%; aspect-ratio:16/9; background:#eaf1f8; overflow:hidden; }
+  .slides{ display:flex; height:100%; transition:transform .35s ease; }
+  .slide{ flex:0 0 100%; height:100%; position:relative; }
+  .slide img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+  .ctrl{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border:0; border-radius:50%;
+         background:rgba(255,255,255,.92); color:#2b2f36; display:flex; align-items:center; justify-content:center;
+         cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.18) }
+  .ctrl:hover{ background:#fff; }
+  .prev{ left:10px; }
+  .next{ right:10px; }
+
+  .dots{ position:absolute; left:0; right:0; bottom:10px; display:flex; gap:.4rem; justify-content:center; }
+  .dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.65); border:2px solid rgba(0,0,0,.1); cursor:pointer; }
+  .dot.active{ background:#fff; border-color:#fff; }
+
+  /* FOOTER (identical look & structure to your reference) */
+  .footer { background: linear-gradient(135deg, #2c3e50, #34495e); color: #ecf0f1; padding: 3rem 0 1rem; margin-top: 4rem; }
+  .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
+  .footer-section { flex:1 1 260px; }
+  .footer-section h4 { color: #3498db; margin-bottom: 1rem; }
+  .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+  .social-links a { color: #ecf0f1; font-size: 1.4rem; transition: color 0.3s ease; }
+  .social-links a:hover { color: #3498db; }
+  .footer-bottom{ text-align:center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #34495e; color: #bdc3c7; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="lab.html" aria-label="Class Lab home"><img src="ClassLabLogo.png" class="logo-img" alt="CLASS Lab logo"></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="lab.html#focus">Lab Focus</a></li>
+      <li><a href="lab.html#projects">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="fun.html" class="active">Fun</a></li>
+      <li><a href="lab.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <h1 class="section-title">Fun &amp; Community</h1>
+    <div class="section-underline"></div>
+    <p class="intro">
+      We love celebrating wins, sharing good food, and playing games together. Here are some of our favorite moments!
+    </p>
+
+    <section class="fun-grid" id="funGrid"></section>
+  </div>
+</main>
+
+<!-- FOOTER (same structure as reference) -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Contact Information</h4>
+      <p><i class="fas fa-map-marker-alt"></i> 123 University Avenue, Research Building, Suite 456</p>
+      <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+      <p><i class="fas fa-envelope"></i> classlab@university.edu</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Class Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ------- Add/Update fun moments here ------- */
+const FUN = [
+  {
+    id: "fall-gathering-2025",
+    title: "First Fall Gathering 2025",
+    date: "Oct 2025 • Lake Wauburg",
+    caption:
+      "“Work hard, play hard!” We kicked off the fall semester with food, laughter, and board games under the trees.",
+    images: [
+      "images/fun/fall_gathering_2025_1.jpeg",
+      "images/fun/fall_gathering_2025_2.jpeg",
+      "images/fun/fall_gathering_2025_3.jpeg"
+    ]
+  },
+  {
+  id: "sweetwater-2025",
+  title: "Sweetwater Preserve Trail Hike + Dixit",
+  date: "May 11, 2025 • Gainesville, FL",
+  caption:
+    "Another fun CLASS Lab gathering: ~1.5 hr walk, snacks, and our favorite game—Dixit. Invited a couple of other students too—so fun!",
+  images: [
+    "images/fun/sweetwater_2025_1.jpg",  // group by the trail sign
+    "images/fun/sweetwater_2025_2.jpg",  // selfie/group
+    "images/fun/sweetwater_2025_3.jpg",  // path/boardwalk
+  ]
+},
+{
+  id: "lachua-2025",
+  title: "La Chua Trail Hike + Game Day",
+  date: "Feb 23, 2025 • Paynes Prairie State Preserve",
+  caption:
+    "1-hour walk 🐊🌿 + game + 🌸 with students fun! This was right after meeting the AIED paper deadline — work hard, play hard.",
+  images: [
+    "images/fun/lachua_2025_3.jpg",   // boardwalk selfie
+    "images/fun/lachua_2025_2.jpg",   // flowers close-up
+    "images/fun/lachua_2025_1.jpg",   // alligator / water view
+  ]
+},
+{
+  id: "productive-math-celebration-2024",
+  title: "ProductiveMath Grant Celebration 🎉",
+  date: "Nov 17, 2024 • Lake Wauburg, FL",
+  caption:
+    "Celebrating our new grant for the ProductiveMath project, funded by the Bill & Melinda Gates Foundation. Great projects start with great teams! Grateful for everyone who joined—including friends and family—for a day full of pizza, balloons, sunshine, and excitement for what’s ahead.",
+  images: [
+    "images/fun/productivemath_2024_1.jpg",   // group photo with balloons
+    "images/fun/productivemath_2024_2.jpg",   // pizza table setup
+    "images/fun/productivemath_2024_3.jpg",   // pavilion group
+    "images/fun/productivemath_2024_4.jpg",   // picnic and food
+  ]
+},
+{
+  id: "october-lab-gathering-2024",
+  title: "October Lab Gathering 🌞",
+  date: "Oct 20, 2024 • Gainesville, FL",
+  caption:
+    "Our October CLASS Lab gathering — food, laughter, and a brand new game that quickly became a favorite! Beautiful weather, wildlife sightings (yes, a few gators 🐊), and great company.",
+  images: [
+    "images/fun/october_2024_1.jpg",   // group photo at picnic table
+    "images/fun/october_2024_2.jpg",   // alligator in water
+    "images/fun/october_2024_3.jpg",    // scenic lake view / birds
+    "images/fun/october_2024_4.jpg"
+  ]
+},
+{
+  id: "september-gathering-2024",
+  title: "September Gathering 🍉",
+  date: "Sep 15, 2024 • Lake Wauburg, FL",
+  caption:
+    "Work hard, play hard! Our first monthly CLASS Lab gathering — full of good food, laughter, and the board game *Stogit*, which sparked creative, critical, and collaborative thinking. Big thanks to Maedeh for preparing this beautiful feast for the team!",
+  images: [
+    "images/fun/sept_2024_1.jpg",   // veggie and hummus platter
+    "images/fun/sept_2024_2.jpg",   // boiled eggs & snacks
+    "images/fun/sept_2024_3.jpg",   // group picnic photo
+    "images/fun/sept_2024_4.jpg"    // wide shot of table gathering
+  ]
+}
+
+];
+
+/* ------- Build cards with carousels ------- */
+const grid = document.getElementById('funGrid');
+
+function cardFor(item){
+  const el = document.createElement('article');
+  el.className = 'card';
+  const slides = item.images.map(src => `
+    <div class="slide"><img loading="lazy" src="${src}" alt="${item.title}"></div>
+  `).join('');
+  const dots = item.images.map((_,i)=>`<button class="dot" data-idx="${i}" aria-label="Go to slide ${i+1}"></button>`).join('');
+  el.innerHTML = `
+    <div class="carousel" data-id="${item.id}">
+      <div class="slides">${slides}</div>
+      <button class="ctrl prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="ctrl next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="dots">${dots}</div>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">${item.title}</h3>
+      <div class="card-meta">${item.date}</div>
+      <p class="card-caption">${item.caption}</p>
+    </div>`;
+  return el;
+}
+
+FUN.forEach(item => grid.appendChild(cardFor(item)));
+
+/* ------- Carousel interactions (per card) ------- */
+document.querySelectorAll('.carousel').forEach(carousel => {
+  const slidesEl = carousel.querySelector('.slides');
+  const slideCount = slidesEl.children.length;
+  let idx = 0;
+
+  const dots = Array.from(carousel.querySelectorAll('.dot'));
+  function update(){
+    slidesEl.style.transform = `translateX(-${idx*100}%)`;
+    dots.forEach((d,i)=> d.classList.toggle('active', i===idx));
+  }
+  function next(){ idx = (idx+1) % slideCount; update(); }
+  function prev(){ idx = (idx-1+slideCount) % slideCount; update(); }
+
+  carousel.querySelector('.next').addEventListener('click', next);
+  carousel.querySelector('.prev').addEventListener('click', prev);
+  dots.forEach(d=> d.addEventListener('click', ()=>{ idx = +d.dataset.idx; update(); }));
+
+  carousel.tabIndex = 0;
+  carousel.addEventListener('keydown', (e)=>{
+    if(e.key==='ArrowRight') next();
+    if(e.key==='ArrowLeft') prev();
+  });
+
+  // Simple swipe
+  let startX = null;
+  carousel.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
+  carousel.addEventListener('touchmove', (e)=>{
+    if(startX===null) return;
+    const dx = e.touches[0].clientX - startX;
+    if(Math.abs(dx)>40){ (dx<0?next:prev)(); startX=null; }
+  }, {passive:true});
+
+  update();
+});
+</script>
+</body>
+</html>

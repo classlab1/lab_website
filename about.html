@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About • CLASS Lab</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif;line-height:1.6;color:#333;background:#f8f9fa}
+
+    /* NAV */
+    .navbar{background:linear-gradient(135deg,#2c3e50,#34495e);padding:1rem 0;position:fixed;top:0;left:0;right:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+    .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;position:relative}
+    .logo-img{height:45px}
+    .nav-links{display:flex;list-style:none;gap:2rem}
+    .nav-links a{color:#ecf0f1;text-decoration:none;font-weight:500;transition:color .3s}
+    .nav-links a:hover{color:#3498db}
+    .hamburger{display:none;background:transparent;border:0;color:#ecf0f1;font-size:1.6rem;width:44px;height:44px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer}
+    .hamburger:focus-visible{outline:3px solid #6ea8ff;outline-offset:2px}
+    @media (max-width:640px){
+      .hamburger{display:inline-flex}
+      .nav-links{position:absolute;top:100%;right:12px;left:12px;display:grid;gap:0;background:linear-gradient(135deg,#2c3e50,#34495e);border-radius:14px;box-shadow:0 16px 36px rgba(0,0,0,.25);padding:.5rem;transform:translateY(-10px);opacity:0;pointer-events:none;transition:transform .2s,opacity .2s}
+      .nav-links li a{display:block;padding:.9rem 1rem;border-radius:10px}
+      .navbar.open .nav-links{opacity:1;transform:translateY(8px);pointer-events:auto}
+    }
+
+    main{padding-top:104px}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+    .section-title{color:#2c3e50;font-size:2.5rem;text-align:center;margin:0 0 2rem;position:relative}
+    .section-title::after{content:'';width:80px;height:4px;background:linear-gradient(135deg,#3498db,#2980b9);position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);border-radius:2px}
+    #former-grid .team-member{
+    width: 100%;
+    max-width: 300px; /* ✅ same visual size as grad students */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    padding: 1.75rem;
+    gap: .75rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+        #former-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+    justify-items: start; /* ✅ aligns Benz’s card left */
+    }
+
+
+    /* Team */
+    .team-section{margin:2.5rem 0 3.5rem}
+    .team-leader{display:flex;align-items:center;gap:3rem;background:#fff;padding:3rem;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:3rem}
+    .team-info h3{color:#2c3e50;font-size:1.8rem;margin-bottom:.5rem}
+    .team-info .title{color:#3498db;font-size:1.1rem;margin-bottom:1rem;font-weight:600}
+
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:stretch;justify-items:center}
+    .team-member{width:100%;max-width:680px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem;gap:.75rem;background:#fff;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+
+    /* >>> Stable, smooth image loading <<< */
+    .face{
+      width:200px;height:200px;               /* reserves space (no layout shift) */
+      aspect-ratio:1/1;                       /* keep perfect circle even if attrs differ */
+      border-radius:50%;
+      object-fit:cover;object-position:center;
+      display:block;margin:0 auto .75rem;
+      border:5px solid #3498db;background:#fff;
+      opacity:0;                               /* fade-in effect */
+      transition:opacity .25s ease-out;
+    }
+    .face.is-loaded{opacity:1}
+    /* smaller on mobile */
+    @media (max-width:600px){.face{width:160px;height:160px}}
+
+    /* Footer */
+    .footer{background:linear-gradient(135deg,#2c3e50,#34495e);color:#ecf0f1;padding:3rem 0 1rem;margin-top:4rem}
+    .footer-content{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .footer-section{margin-bottom:2rem}
+    .footer-section h4{color:#3498db;margin-bottom:1rem}
+    .social-links{display:flex;gap:1rem;margin-top:1rem}
+    .social-links a{color:#ecf0f1;font-size:1.5rem;transition:color .3s}
+    .social-links a:hover{color:#3498db}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="lab.html" aria-label="Class Lab home"><img src="ClassLabLogo.png" class="logo-img" alt="CLASS Lab logo"></a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="about.html">About</a></li>
+        <li><a href="lab.html#focus">Lab Focus</a></li>
+        <li><a href="lab.html#projects">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="fun.html">Fun</a></li>
+        <li><a href="lab.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1 class="section-title">About Us</h1>
+
+      <section class="team-section">
+        <h3 style="color:#2c3e50;margin-bottom:2rem;font-size:2rem">Our Team</h3>
+
+        <div class="team-leader">
+          <!-- Eager/high-priority above-the-fold image to avoid late swap -->
+          <img
+            src="Rahimi.png"
+            alt="Dr. Seyedahmad Rahimi"
+            class="face"
+            width="600" height="600"
+            loading="eager" fetchpriority="high">
+          <div class="team-info">
+            <h3>Dr. Seyedahmad Rahimi</h3>
+            <div class="title">Lab Director &amp; Principal Investigator</div>
+            <p>
+              Seyedahmad Rahimi, Ph.D., is an Assistant Professor of Educational Technology in the School of Teaching and Learning at the University of Florida. He is the director of Creative Learning through AI and Stealth Assessment in STEM (CLASS) Lab. Dr. Rahimi's research focuses on assessing and fostering students' 21st-century skills (e.g., creativity) and STEM-related knowledge acquisition (e.g., physics understanding).
+            </p>
+          </div>
+        </div>
+
+        <h3 style="color:#2c3e50;margin:3rem 0 2rem;font-size:2rem">Graduate Assistants</h3>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="Salah.png" alt="Salah Esmaeli" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Salah Esmaeli</h4>
+            <p style="color:#3498db">PhD Student</p>
+          </div>
+
+          <div class="team-member">
+            <img src="Deniz.png" alt="Deniz Ercan" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Deniz Ercan</h4>
+            <p style="color:#3498db">PhD Student</p>
+          </div>
+
+          <div class="team-member">
+            <img src="Ran.jpg" alt="Ran Gao" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Ran Gao</h4>
+            <p style="color:#3498db">PhD Student</p>
+          </div>
+
+          <div class="team-member">
+            <img src="Maryam.png" alt="Maryam Babae" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Maryam Babae</h4>
+            <p style="color:#3498db">PhD Student</p>
+          </div>
+
+          <div class="team-member">
+            <img src="MaryamAslam.jpg" alt="New Graduate Student" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Maryam Aslam</h4>
+            <p style="color:#3498db">PhD Student</p>
+          </div>
+        </div>
+
+        <h3 style="color:#2c3e50;margin:3rem 0 2rem;font-size:2rem">Former Lab Members</h3>
+        <div class="team-grid" id="former-grid">
+          <div class="team-member">
+            <img src="Benz.png" alt="Supharoek (Benz) Keawphonkrang" class="face" width="600" height="600" loading="lazy" decoding="async">
+            <h4 style="color:#2c3e50">Supharoek (Benz) Keawphonkrang</h4>
+            <p style="color:#3498db">Former MAE Student</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contact Information</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 123 University Avenue, Research Building, Suite 456</p>
+        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+        <p><i class="fas fa-envelope"></i> classlab@university.edu</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-researchgate"></i></a>
+          <a href="#"><i class="fas fa-graduation-cap"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid #34495e;color:#bdc3c7">
+      <p>&copy; 2024 Class Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Mobile menu toggle */
+    const navbar = document.getElementById('navbar');
+    const burger  = document.getElementById('hamburger');
+    function openMenu(){navbar.classList.add('open');document.body.classList.add('menu-lock');burger.setAttribute('aria-expanded','true');document.addEventListener('click',outside);document.addEventListener('keydown',esc)}
+    function closeMenu(){navbar.classList.remove('open');document.body.classList.remove('menu-lock');burger.setAttribute('aria-expanded','false');document.removeEventListener('click',outside);document.removeEventListener('keydown',esc)}
+    function outside(e){ if(!navbar.contains(e.target)) closeMenu() }
+    function esc(e){ if(e.key==='Escape') closeMenu() }
+    burger.addEventListener('click', (e)=>{e.stopPropagation(); navbar.classList.contains('open')?closeMenu():openMenu()});
+
+    /* Add 'is-loaded' to images when they finish to trigger fade-in */
+    document.querySelectorAll('img.face').forEach(img=>{
+      if (img.complete) img.classList.add('is-loaded');
+      else img.addEventListener('load',()=>img.classList.add('is-loaded'),{once:true});
+    });
+  </script>
+</body>
+</html>
