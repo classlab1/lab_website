@@ -34,15 +34,16 @@
   .card-meta{ color:#6b7a90; font-size:.92rem; margin-bottom:.4rem; }
   .card-caption{ color:#5a6b80; font-size:.98rem; }
 
-  /* Carousel */
-  .carousel{ position:relative; width:100%; aspect-ratio:16/9; background:#eaf1f8; overflow:hidden; }
+  /* Carousel — aspect ratio is set dynamically (no fixed 16:9) */
+  .carousel{ position:relative; width:100%; overflow:hidden; background:#eaf1f8; aspect-ratio:4/3; }
   .slides{ display:flex; height:100%; transition:transform .35s ease; }
   .slide{ flex:0 0 100%; height:100%; position:relative; }
   .slide img{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;            /* No stretching, crop if needed */
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center; background:#eaf1f8;
   }
+  /* If you want a particular image not to crop, add class="contain" to that <img> */
+  .slide img.contain{ object-fit:contain; background:#fff; }
 
   .ctrl{ position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border:0; border-radius:50%;
          background:rgba(255,255,255,.92); color:#2b2f36; display:flex; align-items:center; justify-content:center;
@@ -56,14 +57,14 @@
   .dot.active{ background:#fff; border-color:#fff; }
 
   /* FOOTER */
-  .footer { background: linear-gradient(135deg, #2c3e50, #34495e); color: #ecf0f1; padding: 3rem 0 1rem; margin-top: 4rem; }
-  .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
-  .footer-section { flex:1 1 260px; }
-  .footer-section h4 { color: #3498db; margin-bottom: 1rem; }
-  .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
-  .social-links a { color: #ecf0f1; font-size: 1.4rem; transition: color 0.3s ease; }
-  .social-links a:hover { color: #3498db; }
-  .footer-bottom{ text-align:center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #34495e; color: #bdc3c7; }
+  .footer{ background:linear-gradient(135deg,#2c3e50,#34495e); color:#ecf0f1; padding:3rem 0 1rem; margin-top:4rem; }
+  .footer-content{ max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
+  .footer-section{ flex:1 1 260px; }
+  .footer-section h4{ color:#3498db; margin-bottom:1rem; }
+  .social-links{ display:flex; gap:1rem; margin-top:1rem; }
+  .social-links a{ color:#ecf0f1; font-size:1.4rem; transition:color .3s ease; }
+  .social-links a:hover{ color:#3498db; }
+  .footer-bottom{ text-align:center; margin-top:2rem; padding-top:2rem; border-top:1px solid #34495e; color:#bdc3c7; }
 </style>
 </head>
 <body>
@@ -117,14 +118,13 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>&copy; 2024 Class Lab. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-/* ------- Data ------- */
+/* -------- Data -------- */
 const FUN = [
   {
     id: "fall-gathering-2025",
@@ -203,30 +203,18 @@ const FUN = [
   }
 ];
 
-/* ------- Helpers ------- */
-/* Insert @2x before extension: photo.jpg -> photo@2x.jpg */
-function hi2x(path){
-  return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
-}
-
-/* ------- Build cards ------- */
+/* -------- Build cards -------- */
 const grid = document.getElementById('funGrid');
 
 function cardFor(item){
   const el = document.createElement('article');
   el.className = 'card';
 
-  // Each image gets density-based srcset (1x / 2x) + intrinsic size
   const slides = item.images.map(src => `
     <div class="slide">
-      <img
-        loading="lazy"
-        decoding="async"
-        src="${src}"
-        srcset="${src} 1x, ${hi2x(src)} 2x"
-        sizes="(max-width: 700px) 100vw, 33vw"
-        width="800" height="450"
-        alt="${item.title}">
+      <img loading="lazy" decoding="async"
+           src="${src}" width="800" height="450"
+           alt="${item.title}">
     </div>
   `).join('');
 
@@ -251,7 +239,8 @@ function cardFor(item){
 
 FUN.forEach(item => grid.appendChild(cardFor(item)));
 
-/* ------- Carousel interactions ------- */
+
+/* -------- Carousel interactions -------- */
 document.querySelectorAll('.carousel').forEach(carousel => {
   const slidesEl = carousel.querySelector('.slides');
   const slideCount = slidesEl.children.length;
@@ -275,10 +264,6 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     if(e.key==='ArrowRight') next();
     if(e.key==='ArrowLeft') prev();
   });
-  function hi2x(path){
-  // inserts @2x before the extension: photo.jpg -> photo@2x.jpg
-  return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
-}
 
   // Touch
   let startX = null;
