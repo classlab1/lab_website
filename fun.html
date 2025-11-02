@@ -275,6 +275,10 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     if(e.key==='ArrowRight') next();
     if(e.key==='ArrowLeft') prev();
   });
+  function hi2x(path){
+  // inserts @2x before the extension: photo.jpg -> photo@2x.jpg
+  return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
+}
 
   // Touch
   let startX = null;
