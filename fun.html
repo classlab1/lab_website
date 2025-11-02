@@ -253,6 +253,27 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     if(e.key==='ArrowRight') next();
     if(e.key==='ArrowLeft') prev();
   });
+  function hi2x(path){
+  // inserts @2x before the extension: photo.jpg -> photo@2x.jpg
+  return path.replace(/\.(jpe?g|png|webp)$/i, '@2x.$1');
+}
+
+function cardFor(item){
+  const el = document.createElement('article');
+  el.className = 'card';
+
+  const slides = item.images.map(src => `
+    <div class="slide">
+      <img
+        loading="lazy"
+        decoding="async"
+        src="${src}"
+        srcset="${src} 1x, ${hi2x(src)} 2x"
+        sizes="(max-width: 700px) 100vw, 33vw"
+        width="800" height="450"
+        alt="${item.title}">
+    </div>
+  `).join('');
 
   // Simple swipe
   let startX = null;
