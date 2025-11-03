@@ -55,6 +55,36 @@
     /* Team */
     .team-section{margin:2.5rem 0 3.5rem}
     .team-leader{display:flex;align-items:center;gap:3rem;background:#fff;padding:3rem;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:3rem}
+    /* Mobile layout fix: only for Dr. Rahimi's card */
+@media (max-width: 768px){
+  .team-leader{
+    flex-direction: column;        /* stack image above text */
+    align-items: center;           /* center the stack */
+    text-align: center;            /* center headings */
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+  .team-leader > .face{
+    margin: 0 auto .5rem;          /* center the avatar */
+  }
+  .team-leader .team-info{
+    text-align: center;            /* headings + title centered */
+    max-width: 42ch;               /* keep a comfy line length */
+  }
+  .team-leader .team-info p{
+    text-align: left;              /* body copy reads better left-aligned */
+    margin: 0 auto;                /* center the paragraph block */
+  }
+}
+
+/* Tiny phones: nudge avatar a bit smaller */
+@media (max-width: 420px){
+  .team-leader > .face{
+    width: 140px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
     .team-info h3{color:#2c3e50;font-size:1.8rem;margin-bottom:.5rem}
     .team-info .title{color:#3498db;font-size:1.1rem;margin-bottom:1rem;font-weight:600}
 
