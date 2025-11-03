@@ -6,205 +6,139 @@
 <title>News & Events • CLASS Lab</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 <style>
-  :root{ --ink:#2c3e50; --muted:#5a6b80; --blue:#3498db; --bg:#f8f9fa; --shadow:0 12px 30px rgba(0,0,0,.10); }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  body{ font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
+:root{ --ink:#2c3e50; --muted:#5a6b80; --blue:#3498db; --bg:#f8f9fa; --shadow:0 12px 30px rgba(0,0,0,.10); }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
 
-  /* NAV */
-  /* ===== Universal Navbar (desktop + mobile) ===== */
+/* ===== Navbar (same as main site) ===== */
 .navbar{
   background: linear-gradient(135deg,#2c3e50,#34495e);
   padding: 1rem 0;
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: fixed; top:0; left:0; right:0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
 .nav-container{
-  max-width: 1200px;          /* keep this value consistent on all pages */
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
+  max-width:1200px; margin:0 auto; padding:0 2rem;
+  display:flex; justify-content:space-between; align-items:center; position:relative;
 }
 .logo-img{ height:45px; width:auto; display:block; }
 
-.nav-links{
-  display:flex;               /* desktop row */
-  list-style:none;
-  gap:2rem;
-}
-.nav-links a{
-  color:#ecf0f1;
-  text-decoration:none;
-  font-weight:500;
-  transition: color .3s ease;
-}
+.nav-links{ display:flex; list-style:none; gap:2rem; }
+.nav-links a{ color:#ecf0f1; text-decoration:none; font-weight:500; transition:color .3s; }
 .nav-links a:hover{ color:#3498db; }
 
-/* Hamburger (hidden on desktop) */
 .hamburger{
-  display:none;
-  background:transparent;
-  border:0;
-  color:#ecf0f1;
-  font-size:1.6rem;
-  width:44px; height:44px;
-  border-radius:8px;
-  align-items:center; justify-content:center;
-  cursor:pointer;
+  display:none; background:transparent; border:0; color:#ecf0f1;
+  font-size:1.6rem; width:44px; height:44px; border-radius:8px;
+  align-items:center; justify-content:center; cursor:pointer;
 }
 .hamburger:focus-visible{ outline:3px solid #6ea8ff; outline-offset:2px; }
 
-/* Mobile menu */
-@media (max-width: 640px){
+@media (max-width:640px){
   .hamburger{ display:inline-flex; }
-
-  /* Hide any page-specific desktop layout and show panel */
   .nav-links{
-    position:absolute;
-    top:100%;
-    left:12px; right:12px;
-    display:grid;              /* vertical list */
-    gap:0;
+    position:absolute; top:100%; left:12px; right:12px;
+    display:grid; gap:0;
     background:linear-gradient(135deg,#2c3e50,#34495e);
-    border-radius:14px;
-    box-shadow:0 16px 36px rgba(0,0,0,.25);
-    padding:.5rem;
-    transform:translateY(-10px);
-    opacity:0;
-    pointer-events:none;
-    transition: transform .2s ease, opacity .2s ease;
+    border-radius:14px; box-shadow:0 16px 36px rgba(0,0,0,.25);
+    padding:.5rem; transform:translateY(-10px); opacity:0; pointer-events:none;
+    transition:transform .2s, opacity .2s;
   }
-  .nav-links li a{
-    display:block;
-    padding:.9rem 1rem;
-    border-radius:10px;
-  }
-  .nav-links li a:focus-visible{
-    outline:3px solid #6ea8ff; outline-offset:2px;
-  }
-  .navbar.open .nav-links{
-    opacity:1;
-    transform:translateY(8px);
-    pointer-events:auto;
-  }
+  .nav-links li a{ display:block; padding:.9rem 1rem; border-radius:10px; }
+  .navbar.open .nav-links{ opacity:1; transform:translateY(8px); pointer-events:auto; }
 }
 
-/* Ensure content clears the fixed bar on every page */
-main, main.container, .main, .main-content{
-  padding-top: max(88px, var(--nav-offset, 88px));
-}
-
-/* Prevent scroll on body when menu is open (class toggled by JS) */
+main{ padding-top:100px; }
 body.menu-lock{ overflow:hidden; }
 
+/* ===== Page styling ===== */
+.container{ max-width:1100px; margin:0 auto; padding:0 2rem; }
+.section-title{ text-align:center; font-size:2.5rem; font-weight:800; color:#2c3e50; margin-bottom:1.25rem; }
+.section-underline{ width:72px; height:6px; background:var(--blue); border-radius:4px; margin:.4rem auto 1.8rem; }
 
-  /* PAGE WRAP */
-  .container{ max-width:1100px; margin:0 auto; padding:0 2rem; }
-  main{ padding-top:104px; padding-bottom:40px; }
+.news-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.6rem; }
+.card{ background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; transition:.2s ease; }
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.14); }
+.thumb{ aspect-ratio:16/9; position:relative; background:#eaf1f8; }
+.thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.badge{ position:absolute; left:12px; top:12px; background:linear-gradient(135deg,#3498db,#2980b9); color:#fff; padding:.35rem .7rem; border-radius:999px; font-size:.78rem; font-weight:700; }
+.content{ padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.5rem; }
+.meta{ display:flex; gap:.6rem; align-items:center; color:#6b7a90; font-size:.92rem; }
+.meta i{ color:#3498db; }
+.title{ font-weight:800; font-size:1.1rem; color:#213247; }
+.excerpt{ color:#5a6b80; font-size:.98rem; }
+.tags{ display:flex; flex-wrap:wrap; gap:.4rem; }
+.tag{ background:#eef5fb; color:#2b6aa0; padding:.15rem .55rem; border-radius:6px; font-size:.78rem; }
+.more{ margin-top:.6rem; align-self:flex-start; border:0; background:transparent; color:#2a7ecf; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; gap:.4rem; }
+.more i{ transition: transform .15s ease; }
+.more:hover i{ transform: translateX(2px); }
 
-  /* Title to match other pages */
-  .section-title{
-    text-align:center; font-size:2.5rem; font-weight:800; color:#2c3e50; margin: 0 0 1.25rem;
-  }
-  .section-underline{
-    width:72px; height:6px; background:var(--blue); border-radius:4px; margin:.4rem auto 1.8rem;
-  }
+/* Modal */
+.modal{ position:fixed; inset:0; background:rgba(17,24,39,.6); display:none; align-items:center; justify-content:center; z-index:2000; padding:1rem; }
+.modal.open{ display:flex; }
+.sheet{ width:min(920px, 100%); max-height:92vh; overflow:auto; background:#fff; border-radius:18px; box-shadow:0 30px 70px rgba(0,0,0,.35); }
+.sheet-head{ position:relative; aspect-ratio:16/9; background:#0b2540; overflow:hidden; }
+.sheet-head img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#000; }
+.sheet-body{ padding:1.25rem 1.4rem 1.6rem; }
+.sheet-title{ font-size:1.5rem; font-weight:900; margin-bottom:.2rem; }
+.sheet-meta{ color:#5b6e84; display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
+.sheet-desc{ color:#2b2f36; white-space:pre-wrap; }
+.sheet-links{ margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+.btn{ background:linear-gradient(135deg,#3498db,#2980b9); color:#fff; border:none; border-radius:10px; padding:.6rem .9rem; text-decoration:none; display:inline-flex; gap:.5rem; align-items:center; font-weight:700; }
+.gallery{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:.6rem; margin-top:1rem; }
+.gallery img{ width:100%; height:140px; object-fit:cover; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.close{ position:absolute; top:10px; right:10px; width:40px; height:40px; border-radius:50%; border:0; background:rgba(255,255,255,.9); color:#2b2f36; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.18) }
+.close:hover{ background:#fff; }
 
-  /* Grid cards */
-  .news-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.6rem; }
-  .card{
-    background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.14); }
-  .thumb{ aspect-ratio:16/9; position:relative; background:#eaf1f8; }
-  .thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .badge{
-    position:absolute; left:12px; top:12px; background:linear-gradient(135deg,#3498db,#2980b9); color:#fff;
-    padding:.35rem .7rem; border-radius:999px; font-size:.78rem; font-weight:700;
-  }
-  .content{ padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.5rem; }
-  .meta{ display:flex; gap:.6rem; align-items:center; color:#6b7a90; font-size:.92rem; }
-  .meta i{ color:#3498db; }
-  .title{ font-weight:800; font-size:1.1rem; color:#213247; line-height:1.35; }
-  .excerpt{ color:#5a6b80; font-size:.98rem; }
-  .tags{ display:flex; flex-wrap:wrap; gap:.4rem; }
-  .tag{ background:#eef5fb; color:#2b6aa0; padding:.15rem .55rem; border-radius:6px; font-size:.78rem; }
-  .more{
-    margin-top:.6rem; align-self:flex-start; border:0; background:transparent; color:#2a7ecf; font-weight:800; cursor:pointer;
-    display:inline-flex; align-items:center; gap:.4rem;
-  }
-  .more i{ transition: transform .15s ease; }
-  .more:hover i{ transform: translateX(2px); }
-
-  /* Modal */
-  .modal{ position:fixed; inset:0; background:rgba(17,24,39,.6); display:none; align-items:center; justify-content:center; z-index:2000; padding:1rem; }
-  .modal.open{ display:flex; }
-  .sheet{ width:min(920px, 100%); max-height:92vh; overflow:auto; background:#fff; border-radius:18px; box-shadow:0 30px 70px rgba(0,0,0,.35); }
-  .sheet-head{ position:relative; aspect-ratio:16/8; background:#0b2540; overflow:hidden; }
-  .sheet-head img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .sheet-body{ padding:1.25rem 1.4rem 1.6rem; }
-  .sheet-title{ font-size:1.5rem; font-weight:900; margin-bottom:.2rem; }
-  .sheet-meta{ color:#5b6e84; display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
-  .sheet-desc{ color:#2b2f36; }
-  .sheet-links{ margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap; }
-  .btn{ background:linear-gradient(135deg,#3498db,#2980b9); color:#fff; border:none; border-radius:10px; padding:.6rem .9rem; text-decoration:none; display:inline-flex; gap:.5rem; align-items:center; font-weight:700; }
-  .gallery{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:.6rem; margin-top:1rem; }
-  .gallery img{ width:100%; height:140px; object-fit:cover; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.08); }
-  .close{ position:absolute; top:10px; right:10px; width:40px; height:40px; border-radius:50%; border:0; background:rgba(255,255,255,.9); color:#2b2f36; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.18) }
-  .close:hover{ background:#fff; }
-
-  /* Footer */
- .footer{ background:linear-gradient(135deg,#2c3e50,#34495e); color:#ecf0f1; padding:3rem 0 1rem; margin-top:4rem; }
-  .footer-content{ max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
-  .footer-section{ flex:1 1 260px; }
-  .footer-section h4{ color:#3498db; margin-bottom:1rem; }
-  .social-links{ display:flex; gap:1rem; margin-top:1rem; }
-  .social-links a{ color:#ecf0f1; font-size:1.4rem; transition:color .3s ease; }
-  .social-links a:hover{ color:#3498db; }
-  .footer-bottom{ text-align:center; margin-top:2rem; padding-top:2rem; border-top:1px solid #34495e; color:#bdc3c7; }
+/* Footer */
+.footer{ background:linear-gradient(135deg,#2c3e50,#34495e); color:#ecf0f1; padding:3rem 0 1rem; margin-top:4rem; }
+.footer-content{ max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; gap:2rem; flex-wrap:wrap; }
+.footer-section{ flex:1 1 260px; }
+.footer-section h4{ color:#3498db; margin-bottom:1rem; }
+.social-links{ display:flex; gap:1rem; margin-top:1rem; }
+.social-links a{ color:#ecf0f1; font-size:1.4rem; transition:color .3s ease; }
+.social-links a:hover{ color:#3498db; }
+.footer-bottom{ text-align:center; margin-top:2rem; padding-top:2rem; border-top:1px solid #34495e; color:#bdc3c7; }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<!-- NAV -->
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="lab.html" aria-label="Class Lab home"><img src="ClassLabLogo.png" class="logo-img" alt="CLASS Lab logo"></a>
-    <button class="hamburger" id="hamburger"
-            aria-label="Open menu"
-            aria-controls="primary-navigation"
-            aria-expanded="false">
+    <a href="lab.html" aria-label="Class Lab home">
+      <img src="ClassLabLogo.png" class="logo-img" alt="CLASS Lab logo">
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
     </button>
+
     <ul class="nav-links" id="primary-navigation">
       <li><a href="about.html">About Us</a></li>
       <li><a href="lab.html#focus">Lab Focus</a></li>
       <li><a href="lab.html#projects">Projects</a></li>
       <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="news.html" class="active">News</a></li>
       <li><a href="fun.html">Fun</a></li>
       <li><a href="lab.html#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-
+<!-- ===== MAIN ===== -->
 <main>
   <div class="container">
     <h1 class="section-title">News &amp; Events</h1>
     <div class="section-underline"></div>
 
-    <!-- Cards -->
     <section class="news-grid" id="newsGrid"></section>
   </div>
 </main>
 
-<!-- MODAL -->
+<!-- ===== MODAL ===== -->
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-labelledby="m-title">
   <div class="sheet">
     <div class="sheet-head"><img id="m-hero" alt=""></div>
@@ -221,7 +155,7 @@ body.menu-lock{ overflow:hidden; }
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
@@ -234,230 +168,162 @@ body.menu-lock{ overflow:hidden; }
     <div class="footer-section">
       <h4>Follow Us</h4>
       <div class="social-links">
-        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-        <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-researchgate"></i></a>
+        <a href="#"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 Class Lab. All rights reserved.</p>
-  </div>
+  <div class="footer-bottom">&copy; 2024 Class Lab. All rights reserved.</div>
 </footer>
 
+<!-- ===== PAGE SCRIPTS ===== -->
 <script>
-/* ---- Your news items (images are placeholders; replace paths as needed) ---- */
-const NEWS = [
-    {
-  id: "aect25-computational-thinking",
-  date: "2025-10-25",
-  displayDate: "Oct 25, 2025",
-  category: "Conference",
-  title: "AECT 2025: CLASS Lab presents systematic review on computational thinking assessment",
-  excerpt: "Maryam Babaee presented our paper on assessing computational thinking in K–12 digital learning environments at AECT 2025 in Las Vegas.",
-  desc: "CLASS Lab member **Maryam Babaee** presented the paper *“From Surface to Depth: A Systematic Review of Assessing Computational Thinking in K–12 Digital Learning Environments”* at the **AECT 2025 International Convention** in Las Vegas. Co-authored with Dr. Seyedahmad Rahimi, the paper examines how digital learning environments assess computational thinking (CT) and how assessments can move beyond surface-level scoring toward deeper insights into students’ CT skills. This marks Maryam’s second AECT presentation — and her first in-person appearance — following her earlier virtual participation during the pandemic. She also volunteered to help facilitate sessions, contributing to and connecting with the AECT community. The work reflects CLASS Lab’s ongoing research into computational thinking, learning analytics, and assessment innovation.",
-  place: "AECT 2025 • Las Vegas, NV",
-  people: "Babaee, Rahimi",
-  links: [],
-  tags: ["AECT","Computational Thinking","Systematic Review","Assessment","K-12"],
-  hero: "images/aect25_CT.jpeg",
-  thumbs: ["images/aect25_CT.jpeg"]
-},
-
-    {
-    id: "bo-smith-professorship-2025",
-    date: "2025-10-15",
-    displayDate: "Oct 15, 2025",
-    category: "Award",
-    title: "Dr. Rahimi receives the B.O. Smith Research Professorship Award",
-    excerpt: "Recognized by the University of Florida’s College of Education for outstanding research and scholarship.",
-    desc: "Dr. Seyedahmad Rahimi was honored with the B.O. Smith Research Professorship Award — a two-year professorship that supports research and scholarship at the University of Florida’s College of Education, including $20K in research support. This recognition celebrates his ongoing work on AI-powered learning technologies that help learners become more creative while developing STEM skills. Dr. Rahimi expressed gratitude to his students, colleagues, and the generous donors who make these professorships possible.",
-    place: "University of Florida • Gainesville, FL",
-    people: "Rahimi",
-    links: [],
-    tags: ["Award","UF College of Education","Research","Professorship"],
-    hero: "images/rahimi_award.png",
+document.addEventListener('DOMContentLoaded', () => {
+  /* ---- NEWS DATA ---- */
+  const NEWS = [
+    { id:"aect25-smartflash-award", date:"2025-10-29", displayDate:"Oct 29, 2025",
+      category:"Invited Talk & Award",
+      title:"SmartFlash project wins Emerging Learning Technology Award at AECT 2025",
+      excerpt:"Salah Esmaeili presented the SmartFlash project at AECT 2025 — recognized with the Emerging Learning Technology Award for innovation in adaptive learning.",
+      desc:"CLASS Lab member Salah Esmaeili and his team recieved an award for the SmartFlash project at the Association for Educational Communications and Technology (AECT) 2025 International Convention in Las Vegas. The work, co-developed with Hai Li, Nazanin Adhami, and Hongming Li, received the Emerging Learning Technology Award, presented by the Division of Emerging Learning Technologies (DELT). The award honors innovative approaches to integrating new technologies into learning and teaching. SmartFlash is an AI-powered adaptive learning tool that transforms study materials into personalized flashcards and interactive games, helping learners study smarter and providing educators with scalable, transparent insights for adaptive learning.",
+      place:"AECT 2025 • Las Vegas, NV",
+      people:"Esmaeili, Li, Adhami, Li (H.), Huang, Botelho",
+      tags:["Award","Invited Talk","AECT","Adaptive Learning","SmartFlash","AI in Education"],
+      hero:"images/smartflash_award.png"
     },
-    {
-  id: "aect25-smartflash-award",
-  date: "2025-10-29",
-  displayDate: "Oct 29, 2025",
-  category: "Invited Talk & Award",
-  title: "SmartFlash project wins Emerging Learning Technology Award at AECT 2025",
-  excerpt: "Salah Esmaeili presented the SmartFlash project at AECT 2025 — recognized with the Emerging Learning Technology Award for innovation in adaptive learning.",
-  desc: "CLASS Lab member Salah Esmaeili and his team recieved an award for the SmartFlash project at the Association for Educational Communications and Technology (AECT) 2025 International Convention in Las Vegas. The work, co-developed with Hai Li, Nazanin Adhami, and Hongming Li, received the Emerging Learning Technology Award, presented by the Division of Emerging Learning Technologies (DELT). The award honors innovative approaches to integrating new technologies into learning and teaching. SmartFlash is an AI-powered adaptive learning tool that transforms study materials into personalized flashcards and interactive games, helping learners study smarter and providing educators with scalable, transparent insights for adaptive learning.",
-  place: "AECT 2025 • Las Vegas, NV",
-  people: "Esmaeili, Li, Adhami, Li (H.), Huang, Botelho",
-  links: [],
-  tags: ["Award","Invited Talk","AECT","Adaptive Learning","SmartFlash","AI in Education"],
-  hero: "images/smartflash_award.png",
-},
+    { id:"aect25-computational-thinking", date:"2025-10-25", displayDate:"Oct 25, 2025",
+      category:"Conference",
+      title:"AECT 2025: CLASS Lab presents systematic review on computational thinking assessment",
+      excerpt:"Maryam Babaee presented our paper on assessing computational thinking in K–12 digital learning environments at AECT 2025 in Las Vegas.",
+      desc:"CLASS Lab member **Maryam Babaee** presented the paper “From Surface to Depth: A Systematic Review of Assessing Computational Thinking in K–12 Digital Learning Environments” at the AECT 2025 International Convention in Las Vegas. Co-authored with Dr. Seyedahmad Rahimi, the paper examines how digital learning environments assess computational thinking (CT) and how assessments can move beyond surface-level scoring toward deeper insights into students’ CT skills.",
+      place:"AECT 2025 • Las Vegas, NV",
+      people:"Babaee, Rahimi", tags:["AECT","Computational Thinking","Systematic Review","Assessment","K-12"],
+      hero:"images/aect25_CT.jpeg", thumbs:["images/aect25_CT.jpeg"]
+    },
+    { id:"bo-smith-professorship-2025", date:"2025-10-15", displayDate:"Oct 15, 2025",
+      category:"Award", title:"Dr. Rahimi receives the B.O. Smith Research Professorship Award",
+      excerpt:"Recognized by the University of Florida’s College of Education for outstanding research and scholarship.",
+      desc:"Dr. Seyedahmad Rahimi was honored with the B.O. Smith Research Professorship Award — a two-year professorship that supports research and scholarship at the University of Florida’s College of Education, including $20K in research support.",
+      place:"University of Florida • Gainesville, FL", people:"Rahimi",
+      tags:["Award","UF College of Education","Research","Professorship"], hero:"images/rahimi_award.png"
+    },
+    { id:"uidaho-creativity-talk-2025", date:"2025-10-14", displayDate:"Oct 14, 2025",
+      category:"Invited Talk", title:"Invited talk at University of Idaho: Creativity & AI",
+      excerpt:"Third visit to the Margaret Ritchie School of Family and Consumer Sciences—sharing how we study, assess, and support creativity with AI.",
+      desc:"Dr. Rahimi gave an invited talk at the University of Idaho’s Margaret Ritchie School of Family and Consumer Sciences—his third visit.",
+      place:"University of Idaho • Moscow, ID", people:"Rahimi • Host: Shiyi Chen",
+      tags:["Invited Talk","Creativity","AI in Education","Stealth Assessment"], hero:"images/uni_idaho.png"
+    },
+    { id:"aied25-productive-math", date:"2025-07-12", displayDate:"July 12, 2025",
+      category:"Conference", title:"AIED 2025: ProductiveMath presented in Palermo",
+      excerpt:"Our AIED paper introduces ProductiveMath, a generative-AI app that supports teachers in crafting Productive Failure problems—nominated for Best Poster Award.",
+      desc:"Although Dr. Rahimi was unable to attend AIED 2025 in Palermo, the team’s research was still presented thanks to co-author Dr. Anthony Botelho.",
+      place:"AIED 2025 • Palermo, Italy", people:"Rahimi, Ercan, Gao, Esmaeiligoujar, Babaee, Li, Zhang, Lee, Closser, Botelho",
+      links:[{ href:"https://doi.org/10.1007/978-3-031-99264-3_43", label:"Paper DOI", icon:"fa-book-open" }],
+      tags:["AIED","ProductiveMath","Generative AI","K-12","Productive Failure","Award Nomination"],
+      hero:"images/productivemath_aied.png"
+    },
+    { id:"isls25-digital-games-reviews", date:"2025-06-25", displayDate:"June 25, 2025",
+      category:"Conference", title:"ISLS 2025: Two systematic reviews on digital games, mindset, and executive functions",
+      excerpt:"Presented two long papers from CLASS Lab at ISLS 2025 (Helsinki).",
+      desc:"Two long papers examining games and growth mindset, and games and executive functions.",
+      place:"ISLS 2025 • Helsinki, Finland", people:"Rahimi, Esmaeili, Ercan, Gao, Keawphonkrang",
+      tags:["ISLS","Systematic Review","Digital Games","Growth Mindset","Executive Function","Game-Based Learning"],
+      hero:"images/isls25_games.jpeg"
+    },
+    { id:"aera25-gpt-creativity", date:"2025-04-15", displayDate:"Apr 15, 2025",
+      category:"Conference", title:"AERA 2025: Generative AI and Creativity Assessment",
+      excerpt:"Presented CLASS Lab research on AI-powered creativity assessment and enjoyed a memorable conference with our PhD students in Denver.",
+      desc:"Automated creativity assessment and machine creativity in sandbox games at AERA 2025.",
+      place:"AERA 2025 • Denver, CO", people:"Rahimi, Celik, Gao, Esmaeiligoujar, Li, Botelho, CLASS Lab PhD Students",
+      tags:["AERA","Creativity","Generative AI","Sandbox Games","Conference"],
+      hero:"images/aera25_group.jpg"
+    }
+  ];
 
+  /* ---- Build cards ---- */
+  const grid = document.getElementById('newsGrid');
+  function label(cat){ return cat || "Update"; }
+  function cardFor(item){
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.innerHTML = `
+      <div class="thumb">
+        <span class="badge">${label(item.category)}</span>
+        <img src="${item.hero}" alt="">
+      </div>
+      <div class="content">
+        <div class="meta"><i class="fa-regular fa-calendar"></i><span>${item.displayDate}</span></div>
+        <h3 class="title">${item.title}</h3>
+        <p class="excerpt">${item.excerpt}</p>
+        <div class="tags">${(item.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <button class="more" data-id="${item.id}" aria-label="Read more">
+          <span>Read more</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>`;
+    return el;
+  }
+  NEWS.sort((a,b)=> b.date.localeCompare(a.date)).forEach(n=> grid.appendChild(cardFor(n)));
 
-  {
-  id: "uidaho-creativity-talk-2025",
-  date: "2025-10-14",               // ← was 2025-10-31; this puts it right after the Oct 15 award
-  displayDate: "Oct 14, 2025",      // ← was Oct 25, 2025; align with the date above
-  category: "Invited Talk",
-  title: "Invited talk at University of Idaho: Creativity & AI",
-  excerpt: "Third visit to the Margaret Ritchie School of Family and Consumer Sciences—sharing how we study, assess, and support creativity with AI.",
-  desc: "Dr. Rahimi gave an invited talk at the University of Idaho’s Margaret Ritchie School of Family and Consumer Sciences—his third visit (first remote during COVID, second in person in 2023). The talk covered what creativity is, how it is studied, and how AI can help assess and support it, highlighting CLASS Lab work on stealth assessment and AI-powered creativity support. The overview included the 4C model of creativity and the 4P framework (Person, Process, Press, Product), followed by practical recommendations for nurturing creativity (be curious, say “yes, and…”, seek new experiences, embrace boredom, persist through frustration, collaborate well, and act). Special thanks to host Dr. Shiyi Chen (U. Idaho, an FSU labmate from Ph.D. days) for the invitation and continued collaboration.",
-  place: "University of Idaho • Moscow, ID",
-  people: "Rahimi • Host: Shiyi Chen",
-  links: [],
-  tags: ["Invited Talk","Creativity","AI in Education","Stealth Assessment"],
-  hero: "images/uni_idaho.png"
-}
-,
-  {
-  id: "isls25-digital-games-reviews",
-  date: "2025-06-25",
-  displayDate: "June 25, 2025",
-  category: "Conference",
-  title: "ISLS 2025: Two systematic reviews on digital games, mindset, and executive functions",
-  excerpt: "Presented two long papers from CLASS Lab at ISLS 2025 (Helsinki), exploring how digital games can shape PreK–12 learners’ growth mindset and executive functions.",
-  desc: "Dr. Rahimi presented (remotely) two long papers from CLASS Lab at the International Society of the Learning Sciences (ISLS) 2025 in Helsinki, Finland. The systematic reviews examined how digital games support two critical skills for lifelong learning — growth mindset and executive functions.\n\n🧩 **Paper 1: The Effects of Digital Games on Pre-K–12 Students’ Growth Mindset**  \nAuthors: Rahimi, Esmaeili, Ercan, Gao, & Keawphonkrang  \nPresentation: https://lnkd.in/geQzrdaX  \nKey findings:\n• Most games improved growth mindset, creativity, and persistence.  \n• Effective designs balanced direct (effort-based feedback) and indirect (adaptive challenge) supports.  \n• Custom-designed games dominated — a missed opportunity for adapting commercial titles.  \n• Calls for more rigorous, diverse, and longitudinal studies, including stealth assessment approaches.\n\n🧩 **Paper 2: Improving Pre-K–12 Students’ Executive Functions Using Digital Games**  \nAuthors: Ercan, Esmaeili, & Rahimi  \nPresentation: https://lnkd.in/gwcGbFKg  \nHighlights:\n• Games with strong EF-aligned designs improved executive function outcomes.  \n• Weakly integrated designs showed mixed or null effects.  \n• Research came from education, psychology, and neuropsychology — showing interdisciplinary reach.  \n• Context, duration, and fidelity of implementation matter significantly.\n\nThese reviews offer a roadmap for designing impactful digital learning experiences and emphasize the power of games in education when grounded in solid theory and evidence.",
-  place: "ISLS 2025 • Helsinki, Finland",
-  people: "Rahimi, Esmaeili, Ercan, Gao, Keawphonkrang",
-  links: [],
-  tags: ["ISLS","Systematic Review","Digital Games","Growth Mindset","Executive Function","Game-Based Learning"],
-  hero: "images/isls25_games.jpeg",
-},
-{
-    id: "aied25-productive-math",
-    date: "2025-07-12",
-    displayDate: "July 12, 2025",
-    category: "Conference",
-    title: "AIED 2025: ProductiveMath presented in Palermo",
-    excerpt: "Our AIED paper introduces ProductiveMath, a generative-AI app that supports teachers in crafting Productive Failure problems—nominated for Best Poster Award.",
-    desc: "Although Dr. Rahimi was unable to attend AIED 2025 in Palermo due to severe visa-processing mishandling by BLS and the German Consulate in Miami, the team’s research was still presented thanks to co-author Dr. Anthony Botelho, who stepped in to share the work. The poster, titled “ProductiveMath: A Generative-AI-Powered App to Support Productive Failure Teaching,” was **nominated for the Best Poster Award** at the conference. The project introduces a novel AI-powered tool that helps teachers design algebra problems aligned with Productive Failure pedagogy. Across four iterative studies using a human-in-the-loop workflow, results showed that AI-generated problems can promote deeper learning, engagement, and collaboration. Teachers found the tool intuitive and useful, and students expressed enthusiasm for the problem-solving challenges. This work was supported by the Gates Foundation.",
-    place: "AIED 2025 • Palermo, Italy",
-    people: "Rahimi, Ercan, Gao, Esmaeiligoujar, Babaee, Li, Zhang, Lee, Closser, Botelho",
-    links: [{ href: "https://doi.org/10.1007/978-3-031-99264-3_43", label: "Paper DOI", icon:"fa-book-open" }],
-    tags: ["AIED","ProductiveMath","Generative AI","K-12","Productive Failure","Award Nomination"],
-    hero: "images/productivemath_aied.png"
-  },
+  /* ---- Modal behavior ---- */
+  const modal = document.getElementById('modal');
+  const mHero = document.getElementById('m-hero');
+  const mTitle= document.getElementById('m-title');
+  const mCat  = document.getElementById('m-category');
+  const mMeta = document.getElementById('m-meta');
+  const mDesc = document.getElementById('m-desc');
+  const mLinks= document.getElementById('m-links');
+  const mTags = document.getElementById('m-tags');
+  const mGall = document.getElementById('m-gallery');
 
-  {
-  id: "aera25-gpt-creativity",
-  date: "2025-04-15",
-  displayDate: "Apr 15, 2025",
-  category: "Conference",
-  title: "AERA 2025: Generative AI and Creativity Assessment",
-  excerpt: "Presented CLASS Lab research on AI-powered creativity assessment and enjoyed a memorable conference with our PhD students in Denver.",
-  desc: "CLASS Lab presented research on **automated creativity assessment** and **machine creativity in sandbox games** at the American Educational Research Association (AERA) 2025 Annual Meeting in Denver, Colorado. Our presentations explored how generative models can evaluate human creativity and generate creative learning environments.\n\nA highlight of the conference was having four CLASS Lab PhD students attend—three for the first time—alongside Dr. Rahimi. The team connected with academic mentors, colleagues, and scholars interested in learning more about our work, fostering meaningful discussions and collaborations. Dr. Rahimi emphasized that the most valuable part of conferences is the inspiration they bring, and the sense of community they build.\n\nThe lab is already looking forward to **AERA 2026 in Los Angeles!**",
-  place: "AERA 2025 • Denver, CO",
-  people: "Rahimi, Celik, Gao, Esmaeiligoujar, Li, Botelho, CLASS Lab PhD Students",
-  links: [],
-  tags: ["AERA","Creativity","Generative AI","Sandbox Games","Conference"],
-  hero: "images/aera25_group.jpg",
-},
-  
-];
+  document.body.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.more'); if(!btn) return;
+    const item = NEWS.find(n=> n.id===btn.dataset.id); if(!item) return;
+    mHero.src = item.hero;
+    mTitle.textContent = item.title;
+    mCat.textContent = label(item.category);
+    mMeta.innerHTML = `
+      <span><i class="fa-regular fa-calendar"></i> ${item.displayDate}</span>
+      ${item.place ? `<span><i class="fa-solid fa-location-dot"></i> ${item.place}</span>` : ''}
+      ${item.people? `<span><i class="fa-regular fa-user"></i> ${item.people}</span>` : ''}`;
+    mDesc.textContent = item.desc || '';
+    mLinks.innerHTML = (item.links||[]).map(l=>`<a class="btn" href="${l.href}" target="_blank" rel="noopener">
+      <i class="fa-solid ${l.icon||'fa-up-right-from-square'}"></i>${l.label}</a>`).join('');
+    mTags.innerHTML = (item.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+    mGall.innerHTML = (item.thumbs||[]).map(src=>`<img src="${src}" alt="">`).join('');
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+  });
+  document.getElementById('m-close').addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
 
-/* Build cards (sorted newest first) */
-const grid = document.getElementById('newsGrid');
-function label(cat){ return cat || "Update"; }
-function cardFor(item){
-  const el = document.createElement('article');
-  el.className = 'card';
-  el.innerHTML = `
-    <div class="thumb">
-      <span class="badge">${label(item.category)}</span>
-      <img src="${item.hero}" alt="">
-    </div>
-    <div class="content">
-      <div class="meta"><i class="fa-regular fa-calendar"></i><span>${item.displayDate}</span></div>
-      <h3 class="title">${item.title}</h3>
-      <p class="excerpt">${item.excerpt}</p>
-      <div class="tags">${(item.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      <button class="more" data-id="${item.id}" aria-label="Read more">
-        <span>Read more</span> <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>`;
-  return el;
-}
-NEWS.sort((a,b)=> b.date.localeCompare(a.date)).forEach(n=> grid.appendChild(cardFor(n)));
+  /* ---- Hamburger (consistent) ---- */
+  const navbar = document.getElementById("navbar");
+  const burger = document.getElementById("hamburger");
+  const menu   = document.getElementById("primary-navigation");
 
-/* Modal behavior */
-const modal = document.getElementById('modal');
-const mHero = document.getElementById('m-hero');
-const mTitle= document.getElementById('m-title');
-const mCat  = document.getElementById('m-category');
-const mMeta = document.getElementById('m-meta');
-const mDesc = document.getElementById('m-desc');
-const mLinks= document.getElementById('m-links');
-const mTags = document.getElementById('m-tags');
-const mGall = document.getElementById('m-gallery');
+  function openMenu(){
+    navbar.classList.add("open");
+    document.body.classList.add("menu-lock");
+    burger.setAttribute("aria-expanded","true");
+    burger.setAttribute("aria-label","Close menu");
+  }
+  function closeMenu(){
+    navbar.classList.remove("open");
+    document.body.classList.remove("menu-lock");
+    burger.setAttribute("aria-expanded","false");
+    burger.setAttribute("aria-label","Open menu");
+  }
+  function toggleMenu(e){ e.stopPropagation(); navbar.classList.contains("open") ? closeMenu() : openMenu(); }
 
-document.body.addEventListener('click', (e)=>{
-  const btn = e.target.closest('.more'); if(!btn) return;
-  const item = NEWS.find(n=> n.id===btn.dataset.id); if(!item) return;
-  openModal(item);
+  burger?.addEventListener("click", toggleMenu);
+  document.addEventListener("click", (e)=>{ if (navbar.classList.contains("open") && !navbar.contains(e.target)) closeMenu(); });
+  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+  menu?.addEventListener("click", (e)=>{ if (e.target.closest("a[href]")) closeMenu(); });
 });
-document.getElementById('m-close').addEventListener('click', closeModal);
-modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-
-function openModal(item){
-  mHero.src = item.hero;
-  mTitle.textContent = item.title;
-  mCat.textContent = label(item.category);
-  mMeta.innerHTML = `
-    <span><i class="fa-regular fa-calendar"></i> ${item.displayDate}</span>
-    ${item.place ? `<span><i class="fa-solid fa-location-dot"></i> ${item.place}</span>` : ''}
-    ${item.people? `<span><i class="fa-regular fa-user"></i> ${item.people}</span>` : ''}`;
-  mDesc.textContent = item.desc;
-  mLinks.innerHTML = (item.links||[]).map(l=>`<a class="btn" href="${l.href}" target="_blank" rel="noopener">
-    <i class="fa-solid ${l.icon||'fa-up-right-from-square'}"></i>${l.label}</a>`).join('');
-  mTags.innerHTML = (item.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
-  mGall.innerHTML = (item.thumbs||[]).map(src=>`<img src="${src}" alt="">`).join('');
-  modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-}
-function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
-</script>
-<script>
-  (function(){
-    const navbar = document.getElementById('navbar');
-    const burger = document.getElementById('hamburger');
-    const menu   = document.getElementById('primary-navigation');
-
-    function openMenu(){
-      navbar.classList.add('open');
-      document.body.classList.add('menu-lock');
-      burger.setAttribute('aria-expanded','true');
-      burger.setAttribute('aria-label','Close menu');
-      document.addEventListener('click', onOutside);
-      document.addEventListener('keydown', onKey);
-    }
-    function closeMenu(){
-      navbar.classList.remove('open');
-      document.body.classList.remove('menu-lock');
-      burger.setAttribute('aria-expanded','false');
-      burger.setAttribute('aria-label','Open menu');
-      document.removeEventListener('click', onOutside);
-      document.removeEventListener('keydown', onKey);
-    }
-    function toggleMenu(e){
-      e.stopPropagation();
-      navbar.classList.contains('open') ? closeMenu() : openMenu();
-    }
-    function onOutside(e){ if(!navbar.contains(e.target)) closeMenu(); }
-    function onKey(e){ if(e.key==='Escape') closeMenu(); }
-
-    if (burger) burger.addEventListener('click', toggleMenu);
-
-    // Close the menu whenever a nav link is clicked (SPA or full page)
-    if (menu){
-      menu.addEventListener('click', (e)=>{
-        const link = e.target.closest('a[href]');
-        if (!link) return;
-        closeMenu();
-      });
-    }
-  })();
 </script>
 
 </body>
