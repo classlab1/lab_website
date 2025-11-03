@@ -11,12 +11,96 @@
   body{ font-family:'Century Gothic','CenturyGothic','AppleGothic',sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
 
   /* NAV */
-  .navbar{ background:linear-gradient(135deg,#2c3e50,#34495e); padding:1rem 0; position:fixed; top:0; left:0; right:0; z-index:1000; }
-  .nav-container{ max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; }
-  .logo-img{ height:44px; }
-  .nav-links{ display:flex; gap:1.6rem; list-style:none; }
-  .nav-links a{ color:#ecf0f1; text-decoration:none; }
-  .nav-links a[href="fun.html"]::after { display:none !important; }
+  /* ===== Universal Navbar (desktop + mobile) ===== */
+.navbar{
+  background: linear-gradient(135deg,#2c3e50,#34495e);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+.nav-container{
+  max-width: 1200px;          /* keep this value consistent on all pages */
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.logo-img{ height:45px; width:auto; display:block; }
+
+.nav-links{
+  display:flex;               /* desktop row */
+  list-style:none;
+  gap:2rem;
+}
+.nav-links a{
+  color:#ecf0f1;
+  text-decoration:none;
+  font-weight:500;
+  transition: color .3s ease;
+}
+.nav-links a:hover{ color:#3498db; }
+
+/* Hamburger (hidden on desktop) */
+.hamburger{
+  display:none;
+  background:transparent;
+  border:0;
+  color:#ecf0f1;
+  font-size:1.6rem;
+  width:44px; height:44px;
+  border-radius:8px;
+  align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.hamburger:focus-visible{ outline:3px solid #6ea8ff; outline-offset:2px; }
+
+/* Mobile menu */
+@media (max-width: 640px){
+  .hamburger{ display:inline-flex; }
+
+  /* Hide any page-specific desktop layout and show panel */
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:12px; right:12px;
+    display:grid;              /* vertical list */
+    gap:0;
+    background:linear-gradient(135deg,#2c3e50,#34495e);
+    border-radius:14px;
+    box-shadow:0 16px 36px rgba(0,0,0,.25);
+    padding:.5rem;
+    transform:translateY(-10px);
+    opacity:0;
+    pointer-events:none;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-links li a{
+    display:block;
+    padding:.9rem 1rem;
+    border-radius:10px;
+  }
+  .nav-links li a:focus-visible{
+    outline:3px solid #6ea8ff; outline-offset:2px;
+  }
+  .navbar.open .nav-links{
+    opacity:1;
+    transform:translateY(8px);
+    pointer-events:auto;
+  }
+}
+
+/* Ensure content clears the fixed bar on every page */
+main, main.container, .main, .main-content{
+  padding-top: max(88px, var(--nav-offset, 88px));
+}
+
+/* Prevent scroll on body when menu is open (class toggled by JS) */
+body.menu-lock{ overflow:hidden; }
+
 
   /* PAGE WRAP */
   main{ padding-top:104px; padding-bottom:60px; }
@@ -73,7 +157,13 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="lab.html" aria-label="Class Lab home"><img src="ClassLabLogo.png" class="logo-img" alt="CLASS Lab logo"></a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger"
+            aria-label="Open menu"
+            aria-controls="primary-navigation"
+            aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="primary-navigation">
       <li><a href="about.html">About Us</a></li>
       <li><a href="lab.html#focus">Lab Focus</a></li>
       <li><a href="lab.html#projects">Projects</a></li>
@@ -277,5 +367,47 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   update();
 });
 </script>
+<script>
+  (function(){
+    const navbar = document.getElementById('navbar');
+    const burger = document.getElementById('hamburger');
+    const menu   = document.getElementById('primary-navigation');
+
+    function openMenu(){
+      navbar.classList.add('open');
+      document.body.classList.add('menu-lock');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      document.addEventListener('click', onOutside);
+      document.addEventListener('keydown', onKey);
+    }
+    function closeMenu(){
+      navbar.classList.remove('open');
+      document.body.classList.remove('menu-lock');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      document.removeEventListener('click', onOutside);
+      document.removeEventListener('keydown', onKey);
+    }
+    function toggleMenu(e){
+      e.stopPropagation();
+      navbar.classList.contains('open') ? closeMenu() : openMenu();
+    }
+    function onOutside(e){ if(!navbar.contains(e.target)) closeMenu(); }
+    function onKey(e){ if(e.key==='Escape') closeMenu(); }
+
+    if (burger) burger.addEventListener('click', toggleMenu);
+
+    // Close the menu whenever a nav link is clicked (SPA or full page)
+    if (menu){
+      menu.addEventListener('click', (e)=>{
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        closeMenu();
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>
