@@ -70,10 +70,19 @@
       color:rgba(255,255,255,.95);
       max-width:58ch;
     }
-    .hero-img{
-      width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;
-      background:#eef5fb;box-shadow:0 10px 24px rgba(0,0,0,.18)
-    }
+      .hero-img {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #eef5fb;
+    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  }
+  .hero-img img {
+    width: 100%;
+    height: auto;       /* key line */
+    object-fit: contain; /* or remove this line entirely */
+  }
+
     .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
     @media (max-width:980px){ .proj-hero-inner{grid-template-columns:1fr} }
 
