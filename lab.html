@@ -240,20 +240,20 @@
       position: relative; overflow: hidden;
     }
     .focus-row::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, #3498db, #2980b9); }
-        .row-media {
-      border-radius: 14px;
-      overflow: hidden;
-      background: #eef5fb;
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+    /* === FIX image distortion in About Us focus rows === */
+    .row-media {
+      aspect-ratio: auto !important;   /* removes forced 16:10 ratio */
+      height: auto !important;
     }
 
     .row-media img {
-      width: 100%;
-      height: auto;       
-      object-fit: contain; 
+      width: 100% !important;
+      height: auto !important;         /* keep natural proportions */
+      object-fit: contain !important;  /* no cropping or stretching */
+      background: #fff;
       display: block;
-      background: #fff;   
     }
+
     .row-copy h4 { font-size: 1.55rem; color: #2c3e50; margin: 0 0 .5rem; display: flex; align-items: center; gap: .6rem; }
     .row-copy h4 i { color: #3498db; }
     .row-copy p { color: #5a6b80; font-size: 1.06rem; line-height: 1.9; }
